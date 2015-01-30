@@ -1,4 +1,4 @@
-# FilamentInfo_Repetier_plugin
+# FilamentInfo Repetier plugin
 Story:
 After a year of adventure in the world of 3d printing I was very pleased with Repetier-Host software, so I decided to add other small tools that I used in separate software.
 
