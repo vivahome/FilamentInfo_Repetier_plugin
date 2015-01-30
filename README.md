@@ -1,5 +1,6 @@
 # FilamentInfo Repetier plugin
 Story:
+
 After a year of adventure in the world of 3d printing I was very pleased with Repetier-Host software, so I decided to add other small tools that I used in separate software.
 
 1: Calculator for weight and cost:
@@ -34,4 +35,4 @@ Sorry for my bad english!
 
 INSTALLATION:
 Copy the file FilamentInfo.dll in the Repetier plugins folder in a folder with the same name, example:
-C:\Program Files\Repetier-Host\plugins\FilamentInfo\ for Repetier-Host for add a list of filament with all specific params (diameter, temperature...). Plus a litle converter for find weight and coust for a specific filament length
+C:\Program Files\Repetier-Host\plugins\FilamentInfo\FilamentInfo.dll.
