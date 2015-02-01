@@ -32,7 +32,7 @@ namespace FilamentInfo
             // Add some info in the about dialog
             host.AboutDialog.RegisterThirdParty(
                 "FilamentInfo Plugin", "\r\n\r\n FilamentInfo Plugin for Repetier-Host. "
-                + "Version: 1.0"
+                + "Version: 1.1"
                 );
 
         }

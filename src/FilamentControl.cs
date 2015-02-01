@@ -29,11 +29,9 @@ namespace FilamentInfo
             InitializeComponent();
         }
 
-
         private void FilamentControl_Load(object sender, EventArgs e)
         {
            // Read the filament list from the registry and load into listview
-
             IRegMemoryFolder Ireg = host.GetRegistryFolder("FilamentInfo_plugin");
 
             //tabPos = Ireg.GetInt("tabPos", 8) * 1000;
@@ -63,8 +61,7 @@ namespace FilamentInfo
             host = _host;
 
             IRegMemoryFolder Ireg = host.GetRegistryFolder("FilamentInfo_plugin");
-            tabPos = Ireg.GetInt("tabPos", 8000) ;
-        
+            tabPos = Ireg.GetInt("tabPos", 8000) ;     
         }
         //Gets called when the component comes into view. For tabs this means when the tab gets selected.
         public void ComponentActivated() {}
@@ -87,22 +84,35 @@ namespace FilamentInfo
         // Convert all value into weight and coust
         private void converter(object sender, EventArgs e)
         {
-
-            // filament radius from diameter d/2
-             decimal radius = textBox_diameter.Value / 2;           
+            decimal radius = textBox_diameter.Value / 2;   
             //mm to cm... radius / 10
             radius = radius / 10;
+
+            //length;  x to cm
+            decimal length = textBox_length.Value;
+            switch (comboBox_unity.Text)
+            {
+                case "mm":
+                    length = length / 10;
+                    break;
+                case "dm":
+                    length = length * 10;
+                    break;
+                case "m":
+                    length = length * 100;
+                    break;
+            }
+
             // calculate volume = (pi * r * r) * L
-            decimal volume = (3.1416m * radius * radius) * (textBox_length.Value / 10);
-            // calculate weight, result in grams
+            decimal volume = (3.1416m * radius * radius) * length;
+
+            // calculate weight, result in grams, print weight result to label
             decimal weight = volume * textBox_density.Value;
-            // print weight result to label
             label_result.Text = Decimal.Round(weight, 2).ToString() + " grams";
 
             // calculate money for the model... cost * weight, weight is in grams...
             decimal cost =  textBox_cost.Value * (weight / 1000);
             label_resultCost.Text = Decimal.Round( cost, 2 ).ToString() + " $";
-
         }
 
 

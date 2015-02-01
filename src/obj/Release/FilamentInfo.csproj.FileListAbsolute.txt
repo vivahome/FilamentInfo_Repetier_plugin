@@ -1,0 +1,11 @@
+C:\Users\BrOncO\Program Files\Repetier-Host\plugins\FilamentInfo\FilamentInfo.dll
+C:\Users\BrOncO\Program Files\Repetier-Host\plugins\FilamentInfo\FilamentInfo.pdb
+C:\Users\BrOncO\Documents\Visual Studio 2013\Projects\FilamentInfo\FilamentInfo_Repetier_plugin\src\obj\Release\FilamentInfo.csprojResolveAssemblyReference.cache
+C:\Users\BrOncO\Documents\Visual Studio 2013\Projects\FilamentInfo\FilamentInfo_Repetier_plugin\src\obj\Release\FilamentInfo.addEdit_form.resources
+C:\Users\BrOncO\Documents\Visual Studio 2013\Projects\FilamentInfo\FilamentInfo_Repetier_plugin\src\obj\Release\FilamentInfo.FilamentControl.resources
+C:\Users\BrOncO\Documents\Visual Studio 2013\Projects\FilamentInfo\FilamentInfo_Repetier_plugin\src\obj\Release\FilamentInfo.Properties.Resources.resources
+C:\Users\BrOncO\Documents\Visual Studio 2013\Projects\FilamentInfo\FilamentInfo_Repetier_plugin\src\obj\Release\FilamentInfo.csproj.GenerateResource.Cache
+C:\Users\BrOncO\Documents\Visual Studio 2013\Projects\FilamentInfo\FilamentInfo_Repetier_plugin\src\obj\Release\FilamentInfo.dll
+C:\Users\BrOncO\Documents\Visual Studio 2013\Projects\FilamentInfo\FilamentInfo_Repetier_plugin\src\obj\Release\FilamentInfo.pdb
+C:\Program Files\Repetier-Host\plugins\FilamentInfo\FilamentInfo.dll
+C:\Program Files\Repetier-Host\plugins\FilamentInfo\FilamentInfo.pdb

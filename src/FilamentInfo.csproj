@@ -24,14 +24,15 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\..\..\..\Program Files\Repetier-Host\plugins\FilamentInfo\</OutputPath>
+    <OutputPath>..\..\..\..\..\..\..\..\Program Files\Repetier-Host\plugins\FilamentInfo\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="RepetierHostExtender">
-      <HintPath>..\..\..\..\..\..\Program Files\Repetier-Host\RepetierHostExtender.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Repetier-Host\RepetierHostExtender.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
