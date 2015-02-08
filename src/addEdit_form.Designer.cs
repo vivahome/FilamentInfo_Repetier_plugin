@@ -53,6 +53,7 @@
             this.MenuItem_abs = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_pet = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_pc = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_diameter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_cost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_density)).BeginInit();
@@ -129,9 +130,9 @@
             this.label_multi.AutoSize = true;
             this.label_multi.Location = new System.Drawing.Point(171, 75);
             this.label_multi.Name = "label_multi";
-            this.label_multi.Size = new System.Drawing.Size(88, 13);
+            this.label_multi.Size = new System.Drawing.Size(93, 13);
             this.label_multi.TabIndex = 13;
-            this.label_multi.Text = "extruder multiplier";
+            this.label_multi.Text = "Extrusion multiplier";
             // 
             // label_temp
             // 
@@ -329,7 +330,8 @@
             this.Name = "addEdit_form";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Add or Edit item";
+            this.Text = "Filament data";
+            this.Load += new System.EventHandler(this.addEdit_form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_diameter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_cost)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_density)).EndInit();
@@ -366,5 +368,6 @@
         private System.Windows.Forms.ToolStripMenuItem MenuItem_abs;
         private System.Windows.Forms.ToolStripMenuItem MenuItem_pet;
         private System.Windows.Forms.ToolStripMenuItem MenuItem_pc;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

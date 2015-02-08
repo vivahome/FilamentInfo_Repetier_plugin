@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RepetierHostExtender.interfaces;
+﻿using RepetierHostExtender.interfaces;
+using RepetierHostExtender.utils;
+using System.IO;
 
 
 namespace FilamentInfo
@@ -23,6 +20,11 @@ namespace FilamentInfo
         /// Here you must create and register new Controls and Windows.
         public void PostInitialize()
         {
+            // load plugin translation file
+            string langPath = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "translations");
+            if ( Directory.Exists(langPath) )
+                Trans.trans.AddFolder(langPath);
+
 
             // Add the CoolControl to the right tab
             FilamentControl cool = new FilamentControl();
@@ -32,7 +34,7 @@ namespace FilamentInfo
             // Add some info in the about dialog
             host.AboutDialog.RegisterThirdParty(
                 "FilamentInfo Plugin", "\r\n\r\n FilamentInfo Plugin for Repetier-Host. "
-                + "Version: 1.1"
+                + "Version: 1.2"
                 );
 
         }

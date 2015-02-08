@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using RepetierHostExtender.interfaces;
-using RepetierHostExtender.basic;
+using RepetierHostExtender.utils;
 using System.IO;
 using System.Xml;
 
@@ -21,6 +16,8 @@ namespace FilamentInfo
         private IHost host;
 
         private int tabPos = 8000;
+
+        private string tabName = Trans.T("FI_TABNAME");
         
 
         // COSTRUCTOR
@@ -31,6 +28,10 @@ namespace FilamentInfo
 
         private void FilamentControl_Load(object sender, EventArgs e)
         {
+            // translation
+            loadLanguage();
+            host.languageChanged += loadLanguage;
+
            // Read the filament list from the registry and load into listview
             IRegMemoryFolder Ireg = host.GetRegistryFolder("FilamentInfo_plugin");
 
@@ -70,7 +71,7 @@ namespace FilamentInfo
         // Name inside component repository
         public string ComponentName { get { return "FilamentInfo"; } }
         // Name for tab
-        public string ComponentDescription { get { return "Filaments"; } }
+        public string ComponentDescription { get { return tabName; } }
         // Used for positioning the tab.
         public int ComponentOrder { get { return tabPos; } }
         // Where to add it.
@@ -108,7 +109,7 @@ namespace FilamentInfo
 
             // calculate weight, result in grams, print weight result to label
             decimal weight = volume * textBox_density.Value;
-            label_result.Text = Decimal.Round(weight, 2).ToString() + " grams";
+            label_result.Text = Decimal.Round(weight, 2).ToString() + " g";
 
             // calculate money for the model... cost * weight, weight is in grams...
             decimal cost =  textBox_cost.Value * (weight / 1000);
@@ -171,7 +172,7 @@ namespace FilamentInfo
             }
 
             // Open the new form 
-            using (addEdit_form OpenForm = new addEdit_form(allGroup))
+            using (addEdit_form OpenForm = new addEdit_form(host, allGroup))
             {
                 OpenForm.ShowDialog();
                 allParams = OpenForm.allParams;
@@ -211,7 +212,7 @@ namespace FilamentInfo
 
                  
             // Open the new form with the item editor
-            using (addEdit_form OpenForm = new addEdit_form(allGroup, allParams))
+            using (addEdit_form OpenForm = new addEdit_form(host, allGroup, allParams))
             {
                 OpenForm.ShowDialog();
                 //copy the new settings in the array
@@ -544,7 +545,50 @@ namespace FilamentInfo
             listView_filament.Items.Add(item);
         }
 
+        private void loadLanguage()
+        {
+            // groupbox
+            groupBox_converter.Text = Trans.T("FI_GB_CONVERTER");
+            groupBox_filamentList.Text = Trans.T("FI_GB_FILAMENTS");
 
+            // label
+            label_cost.Text = Trans.T("FI_L_COST");
+            label_totalCost.Text = Trans.T("FI_L_TOTALCOST");
+            label_density.Text = Trans.T("FI_L_DENSITY");
+            label_diameter.Text = Trans.T("FI_L_DIAMETER");
+            label_length.Text = Trans.T("FI_L_LENGTH");
+            label_weight.Text = Trans.T("FI_L_WEIGHT");
+            label_tabPos.Text = Trans.T("FI_L_TABPOS");
+
+            // listview colums
+            listView_filament.Columns[0].Text = Trans.T("FI_COL_0");
+            listView_filament.Columns[1].Text = Trans.T("FI_COL_1");
+            listView_filament.Columns[2].Text = Trans.T("FI_COL_2");
+            listView_filament.Columns[3].Text = Trans.T("FI_COL_3");
+            listView_filament.Columns[4].Text = Trans.T("FI_COL_4");
+            listView_filament.Columns[5].Text = Trans.T("FI_COL_5");
+            listView_filament.Columns[6].Text = Trans.T("FI_COL_6");
+
+            // Button
+            button_add.Text = Trans.T("FI_B_ADD");
+            toolTip.SetToolTip(button_add, Trans.T("FI_B_ADD_TOOL"));
+            button_edit.Text = Trans.T("FI_B_EDIT");
+            toolTip.SetToolTip(button_edit, Trans.T("FI_B_EDIT_TOOL"));
+            button_delete.Text = Trans.T("FI_B_DELETE");
+            toolTip.SetToolTip(button_delete, Trans.T("FI_B_DELETE_TOOL"));
+            button_export.Text = Trans.T("FI_B_EXPORT");
+            toolTip.SetToolTip(button_export, Trans.T("FI_B_EXPORT_TOOL"));
+            button_import.Text = Trans.T("FI_B_IMPORT");
+            toolTip.SetToolTip(button_import, Trans.T("FI_B_IMPORT_TOOL"));
+            button_convert.Text = Trans.T("FI_B_CONVERT");
+
+            // toolTip
+            toolTip.SetToolTip(textBox_length, Trans.T("FI_LENGTH_TOOL"));
+            toolTip.SetToolTip(textBox_density, Trans.T("FI_DENSITY_TOOL"));
+            toolTip.SetToolTip(textBox_diameter, Trans.T("FI_DIAMETER_TOOL"));
+            toolTip.SetToolTip(textBox_cost, Trans.T("FI_COST_TOOL"));
+            toolTip.SetToolTip(numericUpDown_tabPos, Trans.T("FI_TABPOS_TOOL"));
+        }
 
     }
 

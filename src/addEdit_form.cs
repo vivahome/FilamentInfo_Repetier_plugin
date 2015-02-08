@@ -1,31 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using RepetierHostExtender.utils;
+using RepetierHostExtender.interfaces;
 
 namespace FilamentInfo
 {
     public partial class addEdit_form : Form
     {
+        private IHost host;
+
+
         // array with al new params, public to pass it to the main form after closing this
         internal string[] allParams = null;
 
         // COSTRUCTORS
         //group = list of all listview groups, for populate the comboBox_group
         //Params = array string with all params ... 0: Name; 1:diameter; 2:ExMulti; 3:temp; 4:cost; 5:density; 6:note; 7:group
-        public addEdit_form(List<string> group)
+        public addEdit_form(IHost _host, List<string> group)
         {
+            host = _host;
+
             InitializeComponent();
             comboBox_group.Items.AddRange(group.ToArray());
             comboBox_group.Text = "ABS";
         }
-        public addEdit_form(List<string> group, string[] Params)
+        public addEdit_form(IHost _host, List<string> group, string[] Params)
         {
+            host = _host;
+
             InitializeComponent();
 
 
@@ -43,7 +46,10 @@ namespace FilamentInfo
             comboBox_group.Text = Params[7];
 
         }
-
+        private void addEdit_form_Load(object sender, EventArgs e)
+        {
+            loadLanguage();
+        }
 
         // Insert the default density value for a given material in the NumericUpDown density
         private void button_defaultDensity_Click(object sender, EventArgs e)
@@ -121,6 +127,28 @@ namespace FilamentInfo
             this.Close();
         }
 
+
+        private void loadLanguage()
+        {
+            this.Text = Trans.T("FI_AE_TITLE");
+
+
+            label_cost.Text = Trans.T("FI_AE_COST");
+            label_density.Text = Trans.T("FI_AE_DENSITY");
+            label_diameter.Text = Trans.T("FI_AE_DIAMETER");
+            label_group.Text = Trans.T("FI_AE_GROUP");
+            label_multi.Text = Trans.T("FI_AE_MULTI");
+            label_name.Text = Trans.T("FI_AE_NAME");
+            label_note.Text = Trans.T("FI_AE_NOTE");
+            label_temp.Text = Trans.T("FI_AE_TEMP");
+
+            button_save.Text = Trans.T("FI_AE_SAVE");
+            button_cancel.Text = Trans.T("FI_AE_CANCEL");
+
+            toolTip1.SetToolTip(button_defaultDensity, Trans.T("FI_AE_DENSTOOL"));
+            toolTip1.SetToolTip(textBox_temp, Trans.T("FI_AE_TEMPTOOL"));
+            toolTip1.SetToolTip(comboBox_group, Trans.T("FI_AE_GROUPTOOL"));
+        }
 
     }
 }

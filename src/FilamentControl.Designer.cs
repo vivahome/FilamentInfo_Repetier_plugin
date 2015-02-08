@@ -29,19 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ABS", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("PLA", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("PET", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("NYLON", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("OTHER", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup26 = new System.Windows.Forms.ListViewGroup("ABS", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup27 = new System.Windows.Forms.ListViewGroup("PLA", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup28 = new System.Windows.Forms.ListViewGroup("PET", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup29 = new System.Windows.Forms.ListViewGroup("NYLON", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup30 = new System.Windows.Forms.ListViewGroup("OTHER", System.Windows.Forms.HorizontalAlignment.Left);
             this.button_defaultDensity = new System.Windows.Forms.Button();
             this.label_resultCost = new System.Windows.Forms.Label();
-            this.label_cost2 = new System.Windows.Forms.Label();
+            this.label_totalCost = new System.Windows.Forms.Label();
             this.label_cost = new System.Windows.Forms.Label();
-            this.label_money = new System.Windows.Forms.Label();
             this.textBox_cost = new System.Windows.Forms.NumericUpDown();
             this.label_diameter = new System.Windows.Forms.Label();
-            this.label_mmDensity = new System.Windows.Forms.Label();
             this.textBox_diameter = new System.Windows.Forms.NumericUpDown();
             this.label_result = new System.Windows.Forms.Label();
             this.label_weight = new System.Windows.Forms.Label();
@@ -49,7 +47,6 @@
             this.label_length = new System.Windows.Forms.Label();
             this.textBox_length = new System.Windows.Forms.NumericUpDown();
             this.label_density = new System.Windows.Forms.Label();
-            this.label_gcm3 = new System.Windows.Forms.Label();
             this.textBox_density = new System.Windows.Forms.NumericUpDown();
             this.button_export = new System.Windows.Forms.Button();
             this.button_import = new System.Windows.Forms.Button();
@@ -75,9 +72,9 @@
             this.toolStripMenuItem_edit = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_delete = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox_converter = new System.Windows.Forms.GroupBox();
+            this.comboBox_unity = new System.Windows.Forms.ComboBox();
             this.groupBox_filamentList = new System.Windows.Forms.GroupBox();
             this.label_tabPos = new System.Windows.Forms.Label();
-            this.comboBox_unity = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.textBox_cost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox_diameter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox_length)).BeginInit();
@@ -91,7 +88,7 @@
             // 
             // button_defaultDensity
             // 
-            this.button_defaultDensity.Location = new System.Drawing.Point(171, 65);
+            this.button_defaultDensity.Location = new System.Drawing.Point(152, 97);
             this.button_defaultDensity.Name = "button_defaultDensity";
             this.button_defaultDensity.Size = new System.Drawing.Size(19, 23);
             this.button_defaultDensity.TabIndex = 19;
@@ -104,48 +101,37 @@
             // 
             this.label_resultCost.AutoSize = true;
             this.label_resultCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_resultCost.Location = new System.Drawing.Point(244, 134);
+            this.label_resultCost.Location = new System.Drawing.Point(332, 154);
             this.label_resultCost.Name = "label_resultCost";
             this.label_resultCost.Size = new System.Drawing.Size(31, 17);
             this.label_resultCost.TabIndex = 18;
             this.label_resultCost.Text = "0 $";
             this.label_resultCost.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label_cost2
+            // label_totalCost
             // 
-            this.label_cost2.AutoSize = true;
-            this.label_cost2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_cost2.Location = new System.Drawing.Point(190, 133);
-            this.label_cost2.Name = "label_cost2";
-            this.label_cost2.Size = new System.Drawing.Size(40, 17);
-            this.label_cost2.TabIndex = 17;
-            this.label_cost2.Text = "Cost:";
+            this.label_totalCost.AutoSize = true;
+            this.label_totalCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_totalCost.Location = new System.Drawing.Point(272, 153);
+            this.label_totalCost.Name = "label_totalCost";
+            this.label_totalCost.Size = new System.Drawing.Size(40, 17);
+            this.label_totalCost.TabIndex = 17;
+            this.label_totalCost.Text = "Cost:";
             // 
             // label_cost
             // 
             this.label_cost.AutoSize = true;
             this.label_cost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_cost.Location = new System.Drawing.Point(249, 69);
+            this.label_cost.Location = new System.Drawing.Point(279, 18);
             this.label_cost.Name = "label_cost";
-            this.label_cost.Size = new System.Drawing.Size(40, 17);
+            this.label_cost.Size = new System.Drawing.Size(92, 17);
             this.label_cost.TabIndex = 16;
-            this.label_cost.Text = "Cost:";
-            // 
-            // label_money
-            // 
-            this.label_money.AutoSize = true;
-            this.label_money.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_money.Location = new System.Drawing.Point(382, 69);
-            this.label_money.Name = "label_money";
-            this.label_money.Size = new System.Drawing.Size(35, 17);
-            this.label_money.TabIndex = 15;
-            this.label_money.Text = "$/kg";
-            this.label_money.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_cost.Text = "Cost for 1 kg:";
             // 
             // textBox_cost
             // 
             this.textBox_cost.DecimalPlaces = 1;
-            this.textBox_cost.Location = new System.Drawing.Point(300, 69);
+            this.textBox_cost.Location = new System.Drawing.Point(282, 39);
             this.textBox_cost.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -154,28 +140,18 @@
             this.textBox_cost.Name = "textBox_cost";
             this.textBox_cost.Size = new System.Drawing.Size(76, 23);
             this.textBox_cost.TabIndex = 14;
-            this.toolTip.SetToolTip(this.textBox_cost, "Insert the filament coust, currency for 1 kg");
+            this.toolTip.SetToolTip(this.textBox_cost, "Insert the cost for 1 kg of filament\r\n*Normally the 1 kg coils  have an average o" +
+        "f 750 grams of filament.*");
             // 
             // label_diameter
             // 
             this.label_diameter.AutoSize = true;
             this.label_diameter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_diameter.Location = new System.Drawing.Point(241, 28);
+            this.label_diameter.Location = new System.Drawing.Point(279, 77);
             this.label_diameter.Name = "label_diameter";
-            this.label_diameter.Size = new System.Drawing.Size(69, 17);
+            this.label_diameter.Size = new System.Drawing.Size(110, 17);
             this.label_diameter.TabIndex = 13;
-            this.label_diameter.Text = "Diameter:";
-            // 
-            // label_mmDensity
-            // 
-            this.label_mmDensity.AutoSize = true;
-            this.label_mmDensity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_mmDensity.Location = new System.Drawing.Point(381, 28);
-            this.label_mmDensity.Name = "label_mmDensity";
-            this.label_mmDensity.Size = new System.Drawing.Size(30, 17);
-            this.label_mmDensity.TabIndex = 12;
-            this.label_mmDensity.Text = "mm";
-            this.label_mmDensity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_diameter.Text = "Diameter in mm:";
             // 
             // textBox_diameter
             // 
@@ -185,14 +161,14 @@
             0,
             0,
             131072});
-            this.textBox_diameter.Location = new System.Drawing.Point(316, 28);
+            this.textBox_diameter.Location = new System.Drawing.Point(282, 97);
             this.textBox_diameter.Maximum = new decimal(new int[] {
             5,
             0,
             0,
             0});
             this.textBox_diameter.Name = "textBox_diameter";
-            this.textBox_diameter.Size = new System.Drawing.Size(59, 23);
+            this.textBox_diameter.Size = new System.Drawing.Size(76, 23);
             this.textBox_diameter.TabIndex = 11;
             this.toolTip.SetToolTip(this.textBox_diameter, "Insert the filament diameter in mm\r\n\r\n");
             this.textBox_diameter.Value = new decimal(new int[] {
@@ -205,18 +181,18 @@
             // 
             this.label_result.AutoSize = true;
             this.label_result.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_result.Location = new System.Drawing.Point(244, 107);
+            this.label_result.Location = new System.Drawing.Point(171, 153);
             this.label_result.Name = "label_result";
-            this.label_result.Size = new System.Drawing.Size(66, 17);
+            this.label_result.Size = new System.Drawing.Size(31, 17);
             this.label_result.TabIndex = 10;
-            this.label_result.Text = "0 grams";
+            this.label_result.Text = "0 g";
             this.label_result.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label_weight
             // 
             this.label_weight.AutoSize = true;
             this.label_weight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_weight.Location = new System.Drawing.Point(184, 107);
+            this.label_weight.Location = new System.Drawing.Point(111, 153);
             this.label_weight.Name = "label_weight";
             this.label_weight.Size = new System.Drawing.Size(56, 17);
             this.label_weight.TabIndex = 8;
@@ -224,9 +200,10 @@
             // 
             // button_convert
             // 
-            this.button_convert.Location = new System.Drawing.Point(68, 104);
+            this.button_convert.AutoSize = true;
+            this.button_convert.Location = new System.Drawing.Point(12, 140);
             this.button_convert.Name = "button_convert";
-            this.button_convert.Size = new System.Drawing.Size(75, 46);
+            this.button_convert.Size = new System.Drawing.Size(75, 31);
             this.button_convert.TabIndex = 7;
             this.button_convert.Text = "Convert";
             this.button_convert.UseVisualStyleBackColor = true;
@@ -236,22 +213,23 @@
             // 
             this.label_length.AutoSize = true;
             this.label_length.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_length.Location = new System.Drawing.Point(6, 28);
+            this.label_length.Location = new System.Drawing.Point(38, 19);
             this.label_length.Name = "label_length";
-            this.label_length.Size = new System.Drawing.Size(51, 17);
+            this.label_length.Size = new System.Drawing.Size(108, 17);
             this.label_length.TabIndex = 6;
-            this.label_length.Text = "length:";
+            this.label_length.Text = "Filament length:";
             // 
             // textBox_length
             // 
-            this.textBox_length.Location = new System.Drawing.Point(57, 28);
+            this.textBox_length.DecimalPlaces = 2;
+            this.textBox_length.Location = new System.Drawing.Point(30, 39);
             this.textBox_length.Maximum = new decimal(new int[] {
             100000000,
             0,
             0,
             0});
             this.textBox_length.Name = "textBox_length";
-            this.textBox_length.Size = new System.Drawing.Size(96, 23);
+            this.textBox_length.Size = new System.Drawing.Size(154, 23);
             this.textBox_length.TabIndex = 4;
             this.toolTip.SetToolTip(this.textBox_length, "Insert the filament length used for the model.");
             // 
@@ -259,22 +237,11 @@
             // 
             this.label_density.AutoSize = true;
             this.label_density.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_density.Location = new System.Drawing.Point(-1, 66);
+            this.label_density.Location = new System.Drawing.Point(60, 78);
             this.label_density.Name = "label_density";
-            this.label_density.Size = new System.Drawing.Size(59, 17);
+            this.label_density.Size = new System.Drawing.Size(116, 17);
             this.label_density.TabIndex = 3;
-            this.label_density.Text = "Density:";
-            // 
-            // label_gcm3
-            // 
-            this.label_gcm3.AutoSize = true;
-            this.label_gcm3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_gcm3.Location = new System.Drawing.Point(122, 66);
-            this.label_gcm3.Name = "label_gcm3";
-            this.label_gcm3.Size = new System.Drawing.Size(46, 17);
-            this.label_gcm3.TabIndex = 2;
-            this.label_gcm3.Text = "g/cm3";
-            this.label_gcm3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_density.Text = "Density in g/cm3:";
             // 
             // textBox_density
             // 
@@ -284,24 +251,25 @@
             0,
             0,
             196608});
-            this.textBox_density.Location = new System.Drawing.Point(57, 66);
+            this.textBox_density.Location = new System.Drawing.Point(63, 98);
             this.textBox_density.Maximum = new decimal(new int[] {
             9,
             0,
             0,
             0});
             this.textBox_density.Name = "textBox_density";
-            this.textBox_density.Size = new System.Drawing.Size(59, 23);
+            this.textBox_density.Size = new System.Drawing.Size(83, 23);
             this.textBox_density.TabIndex = 1;
             this.toolTip.SetToolTip(this.textBox_density, "Insert the material density in g/cm3\r\nExample:\r\nPLA: 1.210–1.430 g/cm3\r\nABS: 1.06" +
         "0-1.080 g/cm3\r\nPET: 1.380 g/cm3\r\nPC:  1.200–1.220 g/cm3");
             // 
             // button_export
             // 
-            this.button_export.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button_export.Location = new System.Drawing.Point(349, 360);
+            this.button_export.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_export.AutoSize = true;
+            this.button_export.Location = new System.Drawing.Point(433, 335);
             this.button_export.Name = "button_export";
-            this.button_export.Size = new System.Drawing.Size(61, 23);
+            this.button_export.Size = new System.Drawing.Size(61, 27);
             this.button_export.TabIndex = 5;
             this.button_export.Text = "Export";
             this.toolTip.SetToolTip(this.button_export, "Export the filament list into file XML.");
@@ -310,10 +278,11 @@
             // 
             // button_import
             // 
-            this.button_import.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button_import.Location = new System.Drawing.Point(287, 360);
+            this.button_import.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_import.AutoSize = true;
+            this.button_import.Location = new System.Drawing.Point(352, 335);
             this.button_import.Name = "button_import";
-            this.button_import.Size = new System.Drawing.Size(56, 23);
+            this.button_import.Size = new System.Drawing.Size(57, 27);
             this.button_import.TabIndex = 4;
             this.button_import.Text = "Import";
             this.toolTip.SetToolTip(this.button_import, "Import the filament list from a existing file.");
@@ -322,10 +291,11 @@
             // 
             // button_edit
             // 
+            this.button_edit.AutoSize = true;
             this.button_edit.Enabled = false;
-            this.button_edit.Location = new System.Drawing.Point(131, 29);
+            this.button_edit.Location = new System.Drawing.Point(125, 29);
             this.button_edit.Name = "button_edit";
-            this.button_edit.Size = new System.Drawing.Size(58, 23);
+            this.button_edit.Size = new System.Drawing.Size(60, 27);
             this.button_edit.TabIndex = 3;
             this.button_edit.Text = "Edit";
             this.toolTip.SetToolTip(this.button_edit, "Edit the selected filament");
@@ -334,10 +304,11 @@
             // 
             // button_delete
             // 
+            this.button_delete.AutoSize = true;
             this.button_delete.Enabled = false;
             this.button_delete.Location = new System.Drawing.Point(335, 29);
             this.button_delete.Name = "button_delete";
-            this.button_delete.Size = new System.Drawing.Size(57, 23);
+            this.button_delete.Size = new System.Drawing.Size(60, 27);
             this.button_delete.TabIndex = 2;
             this.button_delete.Text = "Delete";
             this.toolTip.SetToolTip(this.button_delete, "Delete the selected filament");
@@ -346,11 +317,12 @@
             // 
             // button_add
             // 
-            this.button_add.Location = new System.Drawing.Point(35, 29);
+            this.button_add.AutoSize = true;
+            this.button_add.Location = new System.Drawing.Point(12, 29);
             this.button_add.Name = "button_add";
-            this.button_add.Size = new System.Drawing.Size(75, 23);
+            this.button_add.Size = new System.Drawing.Size(60, 27);
             this.button_add.TabIndex = 1;
-            this.button_add.Text = "Add filament";
+            this.button_add.Text = "Add";
             this.toolTip.SetToolTip(this.button_add, "Add a new filament into the list");
             this.button_add.UseVisualStyleBackColor = true;
             this.button_add.Click += new System.EventHandler(this.addListViewItem);
@@ -372,28 +344,28 @@
             this.listView_filament.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.68932F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView_filament.FullRowSelect = true;
             this.listView_filament.GridLines = true;
-            listViewGroup1.Header = "ABS";
-            listViewGroup1.Name = "listViewGroup_ABS";
-            listViewGroup2.Header = "PLA";
-            listViewGroup2.Name = "listViewGroup_PLA";
-            listViewGroup3.Header = "PET";
-            listViewGroup3.Name = "listViewGroup_PET";
-            listViewGroup4.Header = "NYLON";
-            listViewGroup4.Name = "listViewGroup_NYLON";
-            listViewGroup5.Header = "OTHER";
-            listViewGroup5.Name = "listViewGroup_OTHER";
+            listViewGroup26.Header = "ABS";
+            listViewGroup26.Name = "listViewGroup_ABS";
+            listViewGroup27.Header = "PLA";
+            listViewGroup27.Name = "listViewGroup_PLA";
+            listViewGroup28.Header = "PET";
+            listViewGroup28.Name = "listViewGroup_PET";
+            listViewGroup29.Header = "NYLON";
+            listViewGroup29.Name = "listViewGroup_NYLON";
+            listViewGroup30.Header = "OTHER";
+            listViewGroup30.Name = "listViewGroup_OTHER";
             this.listView_filament.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3,
-            listViewGroup4,
-            listViewGroup5});
+            listViewGroup26,
+            listViewGroup27,
+            listViewGroup28,
+            listViewGroup29,
+            listViewGroup30});
             this.listView_filament.HideSelection = false;
             this.listView_filament.Location = new System.Drawing.Point(12, 67);
             this.listView_filament.MultiSelect = false;
             this.listView_filament.Name = "listView_filament";
             this.listView_filament.ShowItemToolTips = true;
-            this.listView_filament.Size = new System.Drawing.Size(402, 287);
+            this.listView_filament.Size = new System.Drawing.Size(482, 262);
             this.listView_filament.TabIndex = 0;
             this.listView_filament.UseCompatibleStateImageBehavior = false;
             this.listView_filament.View = System.Windows.Forms.View.Details;
@@ -437,7 +409,7 @@
             // numericUpDown_tabPos
             // 
             this.numericUpDown_tabPos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.numericUpDown_tabPos.Location = new System.Drawing.Point(95, 560);
+            this.numericUpDown_tabPos.Location = new System.Drawing.Point(95, 571);
             this.numericUpDown_tabPos.Maximum = new decimal(new int[] {
             10,
             0,
@@ -530,26 +502,36 @@
             this.groupBox_converter.Controls.Add(this.label_length);
             this.groupBox_converter.Controls.Add(this.label_resultCost);
             this.groupBox_converter.Controls.Add(this.textBox_density);
-            this.groupBox_converter.Controls.Add(this.label_cost2);
-            this.groupBox_converter.Controls.Add(this.label_gcm3);
+            this.groupBox_converter.Controls.Add(this.label_totalCost);
             this.groupBox_converter.Controls.Add(this.label_cost);
             this.groupBox_converter.Controls.Add(this.label_density);
             this.groupBox_converter.Controls.Add(this.textBox_cost);
-            this.groupBox_converter.Controls.Add(this.label_money);
             this.groupBox_converter.Controls.Add(this.textBox_length);
             this.groupBox_converter.Controls.Add(this.label_diameter);
             this.groupBox_converter.Controls.Add(this.button_convert);
-            this.groupBox_converter.Controls.Add(this.label_mmDensity);
             this.groupBox_converter.Controls.Add(this.label_weight);
             this.groupBox_converter.Controls.Add(this.textBox_diameter);
             this.groupBox_converter.Controls.Add(this.label_result);
             this.groupBox_converter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.786407F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox_converter.Location = new System.Drawing.Point(3, 3);
             this.groupBox_converter.Name = "groupBox_converter";
-            this.groupBox_converter.Size = new System.Drawing.Size(427, 157);
+            this.groupBox_converter.Size = new System.Drawing.Size(427, 176);
             this.groupBox_converter.TabIndex = 20;
             this.groupBox_converter.TabStop = false;
             this.groupBox_converter.Text = "Converter";
+            // 
+            // comboBox_unity
+            // 
+            this.comboBox_unity.FormattingEnabled = true;
+            this.comboBox_unity.Items.AddRange(new object[] {
+            "mm",
+            "cm",
+            "m"});
+            this.comboBox_unity.Location = new System.Drawing.Point(190, 39);
+            this.comboBox_unity.Name = "comboBox_unity";
+            this.comboBox_unity.Size = new System.Drawing.Size(47, 25);
+            this.comboBox_unity.TabIndex = 20;
+            this.comboBox_unity.Text = "mm";
             // 
             // groupBox_filamentList
             // 
@@ -563,9 +545,9 @@
             this.groupBox_filamentList.Controls.Add(this.button_edit);
             this.groupBox_filamentList.Controls.Add(this.button_delete);
             this.groupBox_filamentList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox_filamentList.Location = new System.Drawing.Point(3, 166);
+            this.groupBox_filamentList.Location = new System.Drawing.Point(3, 198);
             this.groupBox_filamentList.Name = "groupBox_filamentList";
-            this.groupBox_filamentList.Size = new System.Drawing.Size(427, 389);
+            this.groupBox_filamentList.Size = new System.Drawing.Size(507, 368);
             this.groupBox_filamentList.TabIndex = 2;
             this.groupBox_filamentList.TabStop = false;
             this.groupBox_filamentList.Text = "Filaments rolls list";
@@ -573,25 +555,12 @@
             // label_tabPos
             // 
             this.label_tabPos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label_tabPos.Location = new System.Drawing.Point(4, 560);
+            this.label_tabPos.Location = new System.Drawing.Point(4, 571);
             this.label_tabPos.Name = "label_tabPos";
             this.label_tabPos.Size = new System.Drawing.Size(83, 18);
             this.label_tabPos.TabIndex = 22;
             this.label_tabPos.Text = "Tab position:";
             this.label_tabPos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // comboBox_unity
-            // 
-            this.comboBox_unity.FormattingEnabled = true;
-            this.comboBox_unity.Items.AddRange(new object[] {
-            "mm",
-            "cm",
-            "m"});
-            this.comboBox_unity.Location = new System.Drawing.Point(160, 28);
-            this.comboBox_unity.Name = "comboBox_unity";
-            this.comboBox_unity.Size = new System.Drawing.Size(47, 25);
-            this.comboBox_unity.TabIndex = 20;
-            this.comboBox_unity.Text = "mm";
             // 
             // FilamentControl
             // 
@@ -602,7 +571,7 @@
             this.Controls.Add(this.groupBox_converter);
             this.Controls.Add(this.groupBox_filamentList);
             this.Name = "FilamentControl";
-            this.Size = new System.Drawing.Size(433, 581);
+            this.Size = new System.Drawing.Size(513, 592);
             this.Load += new System.EventHandler(this.FilamentControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.textBox_cost)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox_diameter)).EndInit();
@@ -614,6 +583,7 @@
             this.groupBox_converter.ResumeLayout(false);
             this.groupBox_converter.PerformLayout();
             this.groupBox_filamentList.ResumeLayout(false);
+            this.groupBox_filamentList.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -624,18 +594,15 @@
         private System.Windows.Forms.NumericUpDown textBox_length;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Label label_density;
-        private System.Windows.Forms.Label label_gcm3;
         private System.Windows.Forms.NumericUpDown textBox_density;
         private System.Windows.Forms.Label label_weight;
         private System.Windows.Forms.Button button_convert;
         private System.Windows.Forms.Label label_result;
         private System.Windows.Forms.Label label_diameter;
-        private System.Windows.Forms.Label label_mmDensity;
         private System.Windows.Forms.NumericUpDown textBox_diameter;
         private System.Windows.Forms.Label label_resultCost;
-        private System.Windows.Forms.Label label_cost2;
+        private System.Windows.Forms.Label label_totalCost;
         private System.Windows.Forms.Label label_cost;
-        private System.Windows.Forms.Label label_money;
         private System.Windows.Forms.NumericUpDown textBox_cost;
         private System.Windows.Forms.ListView listView_filament;
         private System.Windows.Forms.ContextMenuStrip contextMenu_density;

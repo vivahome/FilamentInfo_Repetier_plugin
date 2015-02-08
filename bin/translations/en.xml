@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<translation revision="1" language="English" languageInEnglish="English" author="BrOncO">
+
+<t id="FI_TABNAME" ver="1">Filaments</t>
+<t id="FI_GB_CONVERTER" ver="1">Coverter</t>
+<t id="FI_GB_FILAMENTS" ver="1">Filaments rolls list</t>
+
+<t id="FI_L_COST" ver="1">Cost for 1 kg</t>
+<t id="FI_L_DENSITY" ver="1">Density in g/cm3:</t>
+<t id="FI_L_DIAMETER" ver="1">Diameter in mm</t>
+<t id="FI_L_LENGTH" ver="1">Filament length</t>
+<t id="FI_L_TOTALCOST" ver="1">cost:</t>
+<t id="FI_L_WEIGHT" ver="1">weight:</t>
+<t id="FI_L_TABPOS" ver="1">Tab position:</t>
+
+
+<t id="FI_COL_0" ver="1">Name</t>
+<t id="FI_COL_1" ver="1">Diameter</t>
+<t id="FI_COL_2" ver="1">Ex. multiplier</t>
+<t id="FI_COL_3" ver="1">Temperature</t>
+<t id="FI_COL_4" ver="1">Cost</t>
+<t id="FI_COL_5" ver="1">Density</t>
+<t id="FI_COL_6" ver="1">Note</t>
+
+<t id="FI_B_ADD" ver="1">Add</t>
+<t id="FI_B_ADD_TOOL" ver="1">Add a new filament into the list</t>
+<t id="FI_B_EDIT" ver="1">Edit</t>
+<t id="FI_B_EDIT_TOOL" ver="1">Edit the selected filament</t>
+<t id="FI_B_DELETE" ver="1">Delete</t>
+<t id="FI_B_DELETE_TOOL" ver="1">Delete the selected filament</t>
+<t id="FI_B_EXPORT" ver="1">Export</t>
+<t id="FI_B_EXPORT_TOOL" ver="1">Export the filament list from a existing file.</t>
+<t id="FI_B_IMPORT" ver="1">Import</t>
+<t id="FI_B_IMPORT_TOOL" ver="1">Import the filament list from a existing file.</t>
+<t id="FI_B_CONVERT" ver="1">Convert</t>
+
+
+<t id="FI_LENGTH_TOOL" ver="1">Insert the filament length used for the model.</t>
+<t id="FI_DENSITY_TOOL" ver="1">Insert the material density in g/cm3
+Example:
+PLA: 1.210–1.430 g/cm3
+ABS: 1.060-1.080 g/cm3
+PET: 1.380 g/cm3
+PC:  1.200–1.220 g/cm3</t>
+<t id="FI_DIAMETER_TOOL" ver="1">Insert the filament diameter in mm</t>
+<t id="FI_COST_TOOL" ver="1">Insert the cost for 1 kg of filament.
+*Normally the 1 kg coils  have an average of 750 grams of filament.*</t>
+
+<t id="FI_TABPOS_TOOL" ver="1">Set the Filaments Tab position, 1 is first left.
+*RESTART REPETIER HOST AFTER CHANGE*</t>
+
+
+<t id="FI__TOOL" ver="1"></t>
+<t id="FI__TOOL" ver="1"></t>
+<t id="FI__TOOL" ver="1"></t>
+
+
+
+<t id="FI_AE_TITLE" ver="1">Filament data</t>
+<t id="FI_AE_DIAMETER" ver="1">Diameter in mm</t>
+<t id="FI_AE_DENSITY" ver="1">Density g/cm3</t>
+<t id="FI_AE_COST" ver="1">Cost for 1 kg</t>
+<t id="FI_AE_GROUP" ver="1">Group</t>
+<t id="FI_AE_MULTI" ver="1">Extrusion multiplier</t>
+<t id="FI_AE_NAME" ver="1">Name</t>
+<t id="FI_AE_NOTE" ver="1">Note</t>
+<t id="FI_AE_TEMP" ver="1">Temperature</t>
+<t id="FI_AE_SAVE" ver="1">Save</t>
+<t id="FI_AE_CANCEL" ver="1">Cancel</t>
+<t id="FI_AE_DENSTOOL" ver="1">Insert default density value</t>
+<t id="FI_AE_TEMPTOOL" ver="1">Best temperature for this filament example:
+Noz:230 Bed90</t>
+<t id="FI_AE_GROUPTOOL" ver="1">Only used for separate different item in the listview</t>
+
+
+
+</translation>

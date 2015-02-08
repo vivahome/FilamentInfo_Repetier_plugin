@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<translation revision="1" language="Italiano" languageInEnglish="Italian" author="BrOncO">
+<t id="FI_TABNAME" ver="1">Filamenti</t>
+
+<t id="FI_GB_CONVERTER" ver="1">Covertitore</t>
+<t id="FI_GB_FILAMENTS" ver="1">Lista dei filamenti</t>
+
+<t id="FI_L_COST" ver="1">Costo per 1 kg</t>
+<t id="FI_L_DENSITY" ver="1">Densità in g/cm3:</t>
+<t id="FI_L_DIAMETER" ver="1">Diametro in mm:</t>
+<t id="FI_L_LENGTH" ver="1">Lunghezza</t>
+<t id="FI_L_TOTALCOST" ver="1">Costo:</t>
+<t id="FI_L_WEIGHT" ver="1">Peso:</t>
+<t id="FI_L_TABPOS" ver="1">Posizione Tab:</t>
+
+
+<t id="FI_COL_0" ver="1">Nome</t>
+<t id="FI_COL_1" ver="1">Diametro</t>
+<t id="FI_COL_2" ver="1">Ex. multiplier</t>
+<t id="FI_COL_3" ver="1">Temperatura</t>
+<t id="FI_COL_4" ver="1">Costo</t>
+<t id="FI_COL_5" ver="1">Densità</t>
+<t id="FI_COL_6" ver="1">Note</t>
+
+<t id="FI_B_ADD" ver="1">Aggiungi</t>
+<t id="FI_B_ADD_TOOL" ver="1">Aggiungi un nuovo filamento nella lista</t>
+<t id="FI_B_EDIT" ver="1">Modifica</t>
+<t id="FI_B_EDIT_TOOL" ver="1">Modifica il filamento selezionato nella lista</t>
+<t id="FI_B_DELETE" ver="1">Elimina</t>
+<t id="FI_B_DELETE_TOOL" ver="1">Elimina il filamento selezionato nella lista</t>
+<t id="FI_B_EXPORT" ver="1">Esporta</t>
+<t id="FI_B_EXPORT_TOOL" ver="1">Esporta la lista dei filamenti in un file .XML</t>
+<t id="FI_B_IMPORT" ver="1">Importa</t>
+<t id="FI_B_IMPORT_TOOL" ver="1">Importa la lista dei filamenti da un file .XML</t>
+<t id="FI_B_CONVERT" ver="1">Converti</t>
+
+<t id="FI_LENGTH_TOOL" ver="1">Inserisci la lunghezza totale del filamento.</t>
+<t id="FI_DENSITY_TOOL" ver="1">Inserisci la densità del filamento in g/cm3
+Esempio:
+PLA: 1.210–1.430 g/cm3
+ABS: 1.060-1.080 g/cm3
+PET: 1.380 g/cm3
+PC:  1.200–1.220 g/cm3</t>
+<t id="FI_DIAMETER_TOOL" ver="1">Inserisci il diametro del filamento in mm</t>
+<t id="FI_COST_TOOL" ver="1">Inserisci il costo per 1 kg di filamento.
+*Attenzione, normalmente i filamenti vengono venduti come bobine da 1 kg che contengono SOLO 750 gr*</t>
+
+<t id="FI_TABPOS_TOOL" ver="1">Imposta la posizione di questa scheda, 1 è la prima posizione a sinistra.
+*RIAVVIA REPETIER HOST PER VEDERE IL RISULTATO*</t>
+
+
+<t id="FI_AE_TITLE" ver="1">Dati filamento</t>
+<t id="FI_AE_DIAMETER" ver="1">Diametro in mm</t>
+<t id="FI_AE_DENSITY" ver="1">Densità in g/cm3</t>
+<t id="FI_AE_COST" ver="1">Costo per 1 kg</t>
+<t id="FI_AE_GROUP" ver="1">Gruppo</t>
+<t id="FI_AE_MULTI" ver="1">Extrusion multiplier</t>
+<t id="FI_AE_NAME" ver="1">Nome</t>
+<t id="FI_AE_NOTE" ver="1">Note</t>
+<t id="FI_AE_TEMP" ver="1">Temperatura</t>
+<t id="FI_AE_SAVE" ver="1">Salva</t>
+<t id="FI_AE_CANCEL" ver="1">Cancella</t>
+
+<t id="FI_AE_DENSTOOL" ver="1">Inserisci dei valori standard da una lista</t>
+<t id="FI_AE_TEMPTOOL" ver="1">Migliore temperatura da usare per la stampa, es:
+Noz:230 Bed90</t>
+<t id="FI_AE_GROUPTOOL" ver="1">Usato per dividere i filamenti nella lista</t>
+
+</translation>
+
