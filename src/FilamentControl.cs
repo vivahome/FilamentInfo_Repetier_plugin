@@ -506,13 +506,13 @@ namespace FilamentInfo
         {
             string toolTips;
 
-            toolTips = "Name: " + item.SubItems[0].Text;
-            toolTips += "\r\nDiameter: " + item.SubItems[1].Text;
-            toolTips += "\r\nExtr. Multi: " + item.SubItems[2].Text;
-            toolTips += "\r\nTemperature: " + item.SubItems[3].Text;
-            toolTips += "\r\nCost for 1kg: " + item.SubItems[4].Text + " $";
-            toolTips += "\r\nDensity: " + item.SubItems[5].Text + " gr/cm3";
-            toolTips += "\r\nNote: " + item.SubItems[6].Text;
+            toolTips = listView_filament.Columns[0].Text + ": " + item.SubItems[0].Text;
+            toolTips += "\r\n" + listView_filament.Columns[1].Text + ": " + item.SubItems[1].Text;
+            toolTips += "\r\n" + listView_filament.Columns[2].Text + ": " + item.SubItems[2].Text;
+            toolTips += "\r\n" + listView_filament.Columns[3].Text + ": " + item.SubItems[3].Text;
+            toolTips += "\r\n" + listView_filament.Columns[4].Text + ": " + item.SubItems[4].Text + " $";
+            toolTips += "\r\n" + listView_filament.Columns[5].Text + ": " + item.SubItems[5].Text + " gr/cm3";
+            toolTips += "\r\n" + listView_filament.Columns[6].Text + ": " + item.SubItems[6].Text;
 
             return toolTips;
         }
