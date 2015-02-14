@@ -38,6 +38,12 @@ Sorry for my bad english!
 
 
 INSTALLATION:
+
 Copy the file FilamentInfo.dll and translations folder in the Repetier plugins folder in a folder with the same name, example:
+
 C:\Program Files\Repetier-Host\plugins\FilamentInfo\FilamentInfo.dll.
-C:\Program Files\Repetier-Host\plugins\FilamentInfo\translations
+
+C:\Program Files\Repetier-Host\plugins\FilamentInfo\translations\
+
+
+<img src="https://github.com/BrOncOVu/FilamentInfo_Repetier_plugin/blob/master/preview_image.png" alt="Mountain View" style="width:600px">
