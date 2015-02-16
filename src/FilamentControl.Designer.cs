@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewGroup listViewGroup26 = new System.Windows.Forms.ListViewGroup("ABS", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup27 = new System.Windows.Forms.ListViewGroup("PLA", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup28 = new System.Windows.Forms.ListViewGroup("PET", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup29 = new System.Windows.Forms.ListViewGroup("NYLON", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup30 = new System.Windows.Forms.ListViewGroup("OTHER", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("ABS", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("PLA", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup13 = new System.Windows.Forms.ListViewGroup("PET", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup14 = new System.Windows.Forms.ListViewGroup("NYLON", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup15 = new System.Windows.Forms.ListViewGroup("OTHER", System.Windows.Forms.HorizontalAlignment.Left);
             this.button_defaultDensity = new System.Windows.Forms.Button();
             this.label_resultCost = new System.Windows.Forms.Label();
             this.label_totalCost = new System.Windows.Forms.Label();
@@ -48,8 +48,6 @@
             this.textBox_length = new System.Windows.Forms.NumericUpDown();
             this.label_density = new System.Windows.Forms.Label();
             this.textBox_density = new System.Windows.Forms.NumericUpDown();
-            this.button_export = new System.Windows.Forms.Button();
-            this.button_import = new System.Windows.Forms.Button();
             this.button_edit = new System.Windows.Forms.Button();
             this.button_delete = new System.Windows.Forms.Button();
             this.button_add = new System.Windows.Forms.Button();
@@ -74,7 +72,11 @@
             this.groupBox_converter = new System.Windows.Forms.GroupBox();
             this.comboBox_unity = new System.Windows.Forms.ComboBox();
             this.groupBox_filamentList = new System.Windows.Forms.GroupBox();
+            this.button_backup = new System.Windows.Forms.Button();
             this.label_tabPos = new System.Windows.Forms.Label();
+            this.contextMenu_backup = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.textBox_cost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox_diameter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox_length)).BeginInit();
@@ -84,6 +86,7 @@
             this.contextMenu_listView.SuspendLayout();
             this.groupBox_converter.SuspendLayout();
             this.groupBox_filamentList.SuspendLayout();
+            this.contextMenu_backup.SuspendLayout();
             this.SuspendLayout();
             // 
             // button_defaultDensity
@@ -95,7 +98,7 @@
             this.button_defaultDensity.Text = "D";
             this.toolTip.SetToolTip(this.button_defaultDensity, "Default density for different material");
             this.button_defaultDensity.UseVisualStyleBackColor = true;
-            this.button_defaultDensity.Click += new System.EventHandler(this.button_defaultDensity_Click);
+            this.button_defaultDensity.Click += new System.EventHandler(this.openMenu_Density);
             // 
             // label_resultCost
             // 
@@ -263,37 +266,12 @@
             this.toolTip.SetToolTip(this.textBox_density, "Insert the material density in g/cm3\r\nExample:\r\nPLA: 1.210–1.430 g/cm3\r\nABS: 1.06" +
         "0-1.080 g/cm3\r\nPET: 1.380 g/cm3\r\nPC:  1.200–1.220 g/cm3");
             // 
-            // button_export
-            // 
-            this.button_export.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_export.AutoSize = true;
-            this.button_export.Location = new System.Drawing.Point(433, 335);
-            this.button_export.Name = "button_export";
-            this.button_export.Size = new System.Drawing.Size(61, 27);
-            this.button_export.TabIndex = 5;
-            this.button_export.Text = "Export";
-            this.toolTip.SetToolTip(this.button_export, "Export the filament list into file XML.");
-            this.button_export.UseVisualStyleBackColor = true;
-            this.button_export.Click += new System.EventHandler(this.export_XML);
-            // 
-            // button_import
-            // 
-            this.button_import.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_import.AutoSize = true;
-            this.button_import.Location = new System.Drawing.Point(352, 335);
-            this.button_import.Name = "button_import";
-            this.button_import.Size = new System.Drawing.Size(57, 27);
-            this.button_import.TabIndex = 4;
-            this.button_import.Text = "Import";
-            this.toolTip.SetToolTip(this.button_import, "Import the filament list from a existing file.");
-            this.button_import.UseVisualStyleBackColor = true;
-            this.button_import.Click += new System.EventHandler(this.import_XML);
-            // 
             // button_edit
             // 
+            this.button_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_edit.AutoSize = true;
             this.button_edit.Enabled = false;
-            this.button_edit.Location = new System.Drawing.Point(125, 29);
+            this.button_edit.Location = new System.Drawing.Point(125, 326);
             this.button_edit.Name = "button_edit";
             this.button_edit.Size = new System.Drawing.Size(60, 27);
             this.button_edit.TabIndex = 3;
@@ -304,9 +282,10 @@
             // 
             // button_delete
             // 
+            this.button_delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_delete.AutoSize = true;
             this.button_delete.Enabled = false;
-            this.button_delete.Location = new System.Drawing.Point(335, 29);
+            this.button_delete.Location = new System.Drawing.Point(252, 326);
             this.button_delete.Name = "button_delete";
             this.button_delete.Size = new System.Drawing.Size(60, 27);
             this.button_delete.TabIndex = 2;
@@ -317,8 +296,9 @@
             // 
             // button_add
             // 
+            this.button_add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_add.AutoSize = true;
-            this.button_add.Location = new System.Drawing.Point(12, 29);
+            this.button_add.Location = new System.Drawing.Point(12, 326);
             this.button_add.Name = "button_add";
             this.button_add.Size = new System.Drawing.Size(60, 27);
             this.button_add.TabIndex = 1;
@@ -344,28 +324,28 @@
             this.listView_filament.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.68932F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView_filament.FullRowSelect = true;
             this.listView_filament.GridLines = true;
-            listViewGroup26.Header = "ABS";
-            listViewGroup26.Name = "listViewGroup_ABS";
-            listViewGroup27.Header = "PLA";
-            listViewGroup27.Name = "listViewGroup_PLA";
-            listViewGroup28.Header = "PET";
-            listViewGroup28.Name = "listViewGroup_PET";
-            listViewGroup29.Header = "NYLON";
-            listViewGroup29.Name = "listViewGroup_NYLON";
-            listViewGroup30.Header = "OTHER";
-            listViewGroup30.Name = "listViewGroup_OTHER";
+            listViewGroup11.Header = "ABS";
+            listViewGroup11.Name = "listViewGroup_ABS";
+            listViewGroup12.Header = "PLA";
+            listViewGroup12.Name = "listViewGroup_PLA";
+            listViewGroup13.Header = "PET";
+            listViewGroup13.Name = "listViewGroup_PET";
+            listViewGroup14.Header = "NYLON";
+            listViewGroup14.Name = "listViewGroup_NYLON";
+            listViewGroup15.Header = "OTHER";
+            listViewGroup15.Name = "listViewGroup_OTHER";
             this.listView_filament.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup26,
-            listViewGroup27,
-            listViewGroup28,
-            listViewGroup29,
-            listViewGroup30});
+            listViewGroup11,
+            listViewGroup12,
+            listViewGroup13,
+            listViewGroup14,
+            listViewGroup15});
             this.listView_filament.HideSelection = false;
-            this.listView_filament.Location = new System.Drawing.Point(12, 67);
+            this.listView_filament.Location = new System.Drawing.Point(12, 30);
             this.listView_filament.MultiSelect = false;
             this.listView_filament.Name = "listView_filament";
             this.listView_filament.ShowItemToolTips = true;
-            this.listView_filament.Size = new System.Drawing.Size(482, 262);
+            this.listView_filament.Size = new System.Drawing.Size(482, 290);
             this.listView_filament.TabIndex = 0;
             this.listView_filament.UseCompatibleStateImageBehavior = false;
             this.listView_filament.View = System.Windows.Forms.View.Details;
@@ -538,9 +518,8 @@
             this.groupBox_filamentList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox_filamentList.Controls.Add(this.button_export);
+            this.groupBox_filamentList.Controls.Add(this.button_backup);
             this.groupBox_filamentList.Controls.Add(this.button_add);
-            this.groupBox_filamentList.Controls.Add(this.button_import);
             this.groupBox_filamentList.Controls.Add(this.listView_filament);
             this.groupBox_filamentList.Controls.Add(this.button_edit);
             this.groupBox_filamentList.Controls.Add(this.button_delete);
@@ -552,6 +531,17 @@
             this.groupBox_filamentList.TabStop = false;
             this.groupBox_filamentList.Text = "Filaments rolls list";
             // 
+            // button_backup
+            // 
+            this.button_backup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_backup.Location = new System.Drawing.Point(419, 330);
+            this.button_backup.Name = "button_backup";
+            this.button_backup.Size = new System.Drawing.Size(75, 23);
+            this.button_backup.TabIndex = 6;
+            this.button_backup.Text = "Backup";
+            this.button_backup.UseVisualStyleBackColor = true;
+            this.button_backup.Click += new System.EventHandler(this.openMenu_backup);
+            // 
             // label_tabPos
             // 
             this.label_tabPos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -561,6 +551,30 @@
             this.label_tabPos.TabIndex = 22;
             this.label_tabPos.Text = "Tab position:";
             this.label_tabPos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // contextMenu_backup
+            // 
+            this.contextMenu_backup.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportToolStripMenuItem,
+            this.importToolStripMenuItem});
+            this.contextMenu_backup.Name = "contextMenu_backup";
+            this.contextMenu_backup.Size = new System.Drawing.Size(116, 48);
+            // 
+            // exportToolStripMenuItem
+            // 
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.exportToolStripMenuItem.Text = "Export";
+            this.exportToolStripMenuItem.ToolTipText = "Export the filament list into file XML.";
+            this.exportToolStripMenuItem.Click += new System.EventHandler(this.export_XML);
+            // 
+            // importToolStripMenuItem
+            // 
+            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.importToolStripMenuItem.Text = "Import";
+            this.importToolStripMenuItem.ToolTipText = "Import the filament list from a existing file.";
+            this.importToolStripMenuItem.Click += new System.EventHandler(this.import_XML);
             // 
             // FilamentControl
             // 
@@ -584,6 +598,7 @@
             this.groupBox_converter.PerformLayout();
             this.groupBox_filamentList.ResumeLayout(false);
             this.groupBox_filamentList.PerformLayout();
+            this.contextMenu_backup.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -624,13 +639,15 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_delete;
         private System.Windows.Forms.ColumnHeader columnHeader_Note;
         private System.Windows.Forms.Button button_edit;
-        private System.Windows.Forms.Button button_export;
-        private System.Windows.Forms.Button button_import;
         private System.Windows.Forms.GroupBox groupBox_converter;
         private System.Windows.Forms.GroupBox groupBox_filamentList;
         private System.Windows.Forms.NumericUpDown numericUpDown_tabPos;
         private System.Windows.Forms.Label label_tabPos;
         private System.Windows.Forms.ComboBox comboBox_unity;
+        private System.Windows.Forms.Button button_backup;
+        private System.Windows.Forms.ContextMenuStrip contextMenu_backup;
+        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
 
     }
 }

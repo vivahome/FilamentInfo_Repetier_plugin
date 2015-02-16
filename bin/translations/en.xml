@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<translation revision="1" language="English" languageInEnglish="English" author="BrOncO">
+<translation revision="10" language="English" languageInEnglish="English" author="BrOncO">
 
 <t id="FI_TABNAME" ver="1">Filaments</t>
 <t id="FI_GB_CONVERTER" ver="1">Coverter</t>
@@ -33,6 +33,7 @@
 <t id="FI_B_IMPORT" ver="1">Import</t>
 <t id="FI_B_IMPORT_TOOL" ver="1">Import the filament list from a existing file.</t>
 <t id="FI_B_CONVERT" ver="1">Convert</t>
+<t id="FI_B_BACKUP_TOOL" ver="1">export or import the filaments list.</t>
 
 
 <t id="FI_LENGTH_TOOL" ver="1">Insert the filament length used for the model.</t>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<translation revision="1" language="Italiano" languageInEnglish="Italian" author="BrOncO">
+<translation revision="10" language="Italiano" languageInEnglish="Italian" author="BrOncO">
 <t id="FI_TABNAME" ver="1">Filamenti</t>
 
 <t id="FI_GB_CONVERTER" ver="1">Covertitore</t>
@@ -33,6 +33,8 @@
 <t id="FI_B_IMPORT" ver="1">Importa</t>
 <t id="FI_B_IMPORT_TOOL" ver="1">Importa la lista dei filamenti da un file .XML</t>
 <t id="FI_B_CONVERT" ver="1">Converti</t>
+<t id="FI_B_BACKUP_TOOL" ver="1">Salva o importa la lista dei filamenti.</t>
+
 
 <t id="FI_LENGTH_TOOL" ver="1">Inserisci la lunghezza totale del filamento.</t>
 <t id="FI_DENSITY_TOOL" ver="1">Inserisci la densità del filamento in g/cm3

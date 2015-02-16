@@ -29,8 +29,8 @@ namespace FilamentInfo
         private void FilamentControl_Load(object sender, EventArgs e)
         {
             // translation
-            loadLanguage();
-            host.languageChanged += loadLanguage;
+            load_Translations();
+            host.languageChanged += load_Translations;
 
            // Read the filament list from the registry and load into listview
             IRegMemoryFolder Ireg = host.GetRegistryFolder("FilamentInfo_plugin");
@@ -107,15 +107,40 @@ namespace FilamentInfo
             // calculate volume = (pi * r * r) * L
             decimal volume = (3.1416m * radius * radius) * length;
 
-            // calculate weight, result in grams, print weight result to label
+            // calculate weight, result in grams
             decimal weight = volume * textBox_density.Value;
-            label_result.Text = Decimal.Round(weight, 2).ToString() + " g";
+
+
+            if (weight > 1000)
+                label_result.Text = Decimal.Round(weight / 1000, 2).ToString() + " kg";
+            else
+                label_result.Text = Decimal.Round(weight, 2).ToString() + " g";
 
             // calculate money for the model... cost * weight, weight is in grams...
             decimal cost =  textBox_cost.Value * (weight / 1000);
             label_resultCost.Text = Decimal.Round( cost, 2 ).ToString() + " $";
         }
 
+
+
+
+        private void openMenu_backup(object sender, EventArgs e)
+        {
+            // open the contextMenu backup
+            if (!this.contextMenu_backup.Visible)
+                this.contextMenu_backup.Show(button_backup, button_backup.Width, 0);
+            else
+                this.contextMenu_backup.Hide();
+        }
+
+        private void openMenu_Density(object sender, EventArgs e)
+        {
+         // open the contextMenu density
+            if (!this.contextMenu_density.Visible)
+                this.contextMenu_density.Show(textBox_density, textBox_density.Width, 0);
+            else
+                this.contextMenu_density.Hide();
+        }
 
         // Insert the default density value for a given material in the NumericUpDown density
         private void MenuItems_density_Click(object sender, EventArgs e)
@@ -148,14 +173,6 @@ namespace FilamentInfo
 
             // set the selected value into the numericUpDown density
             textBox_density.Value = density;
-        }
-        private void button_defaultDensity_Click(object sender, EventArgs e)
-        {
-         // open the contextMenu density
-            if (!this.contextMenu_density.Visible)
-                this.contextMenu_density.Show(textBox_density, textBox_density.Width, 0);
-            else
-                this.contextMenu_density.Hide();
         }
 
         // Add, edit, delete item 
@@ -273,7 +290,7 @@ namespace FilamentInfo
             textBox_diameter.Value = Convert.ToDecimal(item.SubItems[1].Text);
          
         }
-        // Open context menu il right click over a listview item
+        // Open context menu if right click over a listview item
         private void listView_filament_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -295,7 +312,134 @@ namespace FilamentInfo
         }
 
 
-        // IMPORT - EXPORT list
+        // Help function...
+
+        // Save the list in the registry
+        private void saveRegistry()
+        {
+            IRegMemoryFolder Ireg = host.GetRegistryFolder("FilamentInfo_plugin");
+
+            // if no items in the list delete all registry value
+            if (listView_filament.Items.Count == 0)
+            {
+                Ireg.DeleteValue("filamentList");
+                return;
+            }
+
+            // all items ar saved into single string, items ar separed by "|", subitems by ";"
+            string regString = "";
+
+            foreach (ListViewItem item in listView_filament.Items)
+            {
+                regString += "|" + item.SubItems[0].Text;
+                regString += ";" + item.SubItems[1].Text;
+                regString += ";" + item.SubItems[2].Text;
+                regString += ";" + item.SubItems[3].Text;
+                regString += ";" + item.SubItems[4].Text;
+                regString += ";" + item.SubItems[5].Text;
+                regString += ";" + item.SubItems[6].Text;
+                regString += ";" + item.Group.Header;
+            }
+
+            Ireg.SetString("filamentList", regString.TrimStart('|'));
+        }
+
+        //Create the Toolstrip string for the listview item
+        private string buildItemToolTips(ListViewItem item)
+        {
+            string toolTips;
+
+            toolTips = listView_filament.Columns[0].Text + ": " + item.SubItems[0].Text;
+            toolTips += "\r\n" + listView_filament.Columns[1].Text + ": " + item.SubItems[1].Text;
+            toolTips += "\r\n" + listView_filament.Columns[2].Text + ": " + item.SubItems[2].Text;
+            toolTips += "\r\n" + listView_filament.Columns[3].Text + ": " + item.SubItems[3].Text;
+            toolTips += "\r\n" + listView_filament.Columns[4].Text + ": " + item.SubItems[4].Text + " $";
+            toolTips += "\r\n" + listView_filament.Columns[5].Text + ": " + item.SubItems[5].Text + " gr/cm3";
+            toolTips += "\r\n" + listView_filament.Columns[6].Text + ": " + item.SubItems[6].Text;
+
+            return toolTips;
+        }
+        //Create an item from given params and add it into the listview
+        private void createAddNewItem(string[] allParams)
+        {
+            ListViewItem item = new ListViewItem(allParams[0]);
+            string[] subItems = 
+            { 
+                allParams[1], 
+                allParams[2], 
+                allParams[3], 
+                allParams[4], 
+                allParams[5], 
+                allParams[6] 
+            };
+            item.SubItems.AddRange(subItems);
+            // change the item group
+            foreach (ListViewGroup group in listView_filament.Groups)
+            {
+                if (group.Header == allParams[7])
+                {
+                    item.Group = group;
+                    break;
+                }
+            }
+
+            item.ToolTipText = buildItemToolTips(item);
+
+            listView_filament.Items.Add(item);
+        }
+
+
+
+        private void load_Translations()
+        {
+            // groupbox
+            groupBox_converter.Text = Trans.T("FI_GB_CONVERTER");
+            groupBox_filamentList.Text = Trans.T("FI_GB_FILAMENTS");
+
+            // label
+            label_cost.Text = Trans.T("FI_L_COST");
+            label_totalCost.Text = Trans.T("FI_L_TOTALCOST");
+            label_density.Text = Trans.T("FI_L_DENSITY");
+            label_diameter.Text = Trans.T("FI_L_DIAMETER");
+            label_length.Text = Trans.T("FI_L_LENGTH");
+            label_weight.Text = Trans.T("FI_L_WEIGHT");
+            label_tabPos.Text = Trans.T("FI_L_TABPOS");
+
+            // listview colums
+            listView_filament.Columns[0].Text = Trans.T("FI_COL_0");
+            listView_filament.Columns[1].Text = Trans.T("FI_COL_1");
+            listView_filament.Columns[2].Text = Trans.T("FI_COL_2");
+            listView_filament.Columns[3].Text = Trans.T("FI_COL_3");
+            listView_filament.Columns[4].Text = Trans.T("FI_COL_4");
+            listView_filament.Columns[5].Text = Trans.T("FI_COL_5");
+            listView_filament.Columns[6].Text = Trans.T("FI_COL_6");
+
+            // Button
+            button_add.Text = Trans.T("FI_B_ADD");
+            toolTip.SetToolTip(button_add, Trans.T("FI_B_ADD_TOOL"));
+            button_edit.Text = Trans.T("FI_B_EDIT");
+            toolTip.SetToolTip(button_edit, Trans.T("FI_B_EDIT_TOOL"));
+            button_delete.Text = Trans.T("FI_B_DELETE");
+            toolTip.SetToolTip(button_delete, Trans.T("FI_B_DELETE_TOOL"));
+            button_convert.Text = Trans.T("FI_B_CONVERT");
+            toolTip.SetToolTip(button_backup, Trans.T("FI_B_BACKUP_TOOL"));
+
+            // backup
+            contextMenu_backup.Items[0].Text = Trans.T("FI_B_EXPORT");
+            contextMenu_backup.Items[0].ToolTipText = Trans.T("FI_B_EXPORT_TOOL");
+            contextMenu_backup.Items[1].Text = Trans.T("FI_B_IMPORT");
+            contextMenu_backup.Items[1].ToolTipText =  Trans.T("FI_B_IMPORT_TOOL");
+
+
+            // toolTip
+            toolTip.SetToolTip(textBox_length, Trans.T("FI_LENGTH_TOOL"));
+            toolTip.SetToolTip(textBox_density, Trans.T("FI_DENSITY_TOOL"));
+            toolTip.SetToolTip(textBox_diameter, Trans.T("FI_DIAMETER_TOOL"));
+            toolTip.SetToolTip(textBox_cost, Trans.T("FI_COST_TOOL"));
+            toolTip.SetToolTip(numericUpDown_tabPos, Trans.T("FI_TABPOS_TOOL"));
+        }
+
+        // BACKUP list
         private void import_XML(object sender, EventArgs e)
         {
             string filePath;
@@ -466,128 +610,6 @@ namespace FilamentInfo
                 MessageBox.Show("Error saving xml file!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-        }
-
-
-        // Help function...
-
-        // Save the list in the registry
-        private void saveRegistry()
-        {
-            IRegMemoryFolder Ireg = host.GetRegistryFolder("FilamentInfo_plugin");
-
-            // if no items in the list delete all registry value
-            if (listView_filament.Items.Count == 0)
-            {
-                Ireg.DeleteValue("filamentList");
-                return;
-            }
-
-            // all items ar saved into single string, items ar separed by "|", subitems by ";"
-            string regString = "";
-
-            foreach (ListViewItem item in listView_filament.Items)
-            {
-                regString += "|" + item.SubItems[0].Text;
-                regString += ";" + item.SubItems[1].Text;
-                regString += ";" + item.SubItems[2].Text;
-                regString += ";" + item.SubItems[3].Text;
-                regString += ";" + item.SubItems[4].Text;
-                regString += ";" + item.SubItems[5].Text;
-                regString += ";" + item.SubItems[6].Text;
-                regString += ";" + item.Group.Header;
-            }
-
-            Ireg.SetString("filamentList", regString.TrimStart('|'));
-        }
-
-        //Create the Toolstrip string for the listview item
-        private string buildItemToolTips(ListViewItem item)
-        {
-            string toolTips;
-
-            toolTips = listView_filament.Columns[0].Text + ": " + item.SubItems[0].Text;
-            toolTips += "\r\n" + listView_filament.Columns[1].Text + ": " + item.SubItems[1].Text;
-            toolTips += "\r\n" + listView_filament.Columns[2].Text + ": " + item.SubItems[2].Text;
-            toolTips += "\r\n" + listView_filament.Columns[3].Text + ": " + item.SubItems[3].Text;
-            toolTips += "\r\n" + listView_filament.Columns[4].Text + ": " + item.SubItems[4].Text + " $";
-            toolTips += "\r\n" + listView_filament.Columns[5].Text + ": " + item.SubItems[5].Text + " gr/cm3";
-            toolTips += "\r\n" + listView_filament.Columns[6].Text + ": " + item.SubItems[6].Text;
-
-            return toolTips;
-        }
-        //Create an item from given params and add it into the listview
-        private void createAddNewItem(string[] allParams)
-        {
-            ListViewItem item = new ListViewItem(allParams[0]);
-            string[] subItems = 
-            { 
-                allParams[1], 
-                allParams[2], 
-                allParams[3], 
-                allParams[4], 
-                allParams[5], 
-                allParams[6] 
-            };
-            item.SubItems.AddRange(subItems);
-            // change the item group
-            foreach (ListViewGroup group in listView_filament.Groups)
-            {
-                if (group.Header == allParams[7])
-                {
-                    item.Group = group;
-                    break;
-                }
-            }
-
-            item.ToolTipText = buildItemToolTips(item);
-
-            listView_filament.Items.Add(item);
-        }
-
-        private void loadLanguage()
-        {
-            // groupbox
-            groupBox_converter.Text = Trans.T("FI_GB_CONVERTER");
-            groupBox_filamentList.Text = Trans.T("FI_GB_FILAMENTS");
-
-            // label
-            label_cost.Text = Trans.T("FI_L_COST");
-            label_totalCost.Text = Trans.T("FI_L_TOTALCOST");
-            label_density.Text = Trans.T("FI_L_DENSITY");
-            label_diameter.Text = Trans.T("FI_L_DIAMETER");
-            label_length.Text = Trans.T("FI_L_LENGTH");
-            label_weight.Text = Trans.T("FI_L_WEIGHT");
-            label_tabPos.Text = Trans.T("FI_L_TABPOS");
-
-            // listview colums
-            listView_filament.Columns[0].Text = Trans.T("FI_COL_0");
-            listView_filament.Columns[1].Text = Trans.T("FI_COL_1");
-            listView_filament.Columns[2].Text = Trans.T("FI_COL_2");
-            listView_filament.Columns[3].Text = Trans.T("FI_COL_3");
-            listView_filament.Columns[4].Text = Trans.T("FI_COL_4");
-            listView_filament.Columns[5].Text = Trans.T("FI_COL_5");
-            listView_filament.Columns[6].Text = Trans.T("FI_COL_6");
-
-            // Button
-            button_add.Text = Trans.T("FI_B_ADD");
-            toolTip.SetToolTip(button_add, Trans.T("FI_B_ADD_TOOL"));
-            button_edit.Text = Trans.T("FI_B_EDIT");
-            toolTip.SetToolTip(button_edit, Trans.T("FI_B_EDIT_TOOL"));
-            button_delete.Text = Trans.T("FI_B_DELETE");
-            toolTip.SetToolTip(button_delete, Trans.T("FI_B_DELETE_TOOL"));
-            button_export.Text = Trans.T("FI_B_EXPORT");
-            toolTip.SetToolTip(button_export, Trans.T("FI_B_EXPORT_TOOL"));
-            button_import.Text = Trans.T("FI_B_IMPORT");
-            toolTip.SetToolTip(button_import, Trans.T("FI_B_IMPORT_TOOL"));
-            button_convert.Text = Trans.T("FI_B_CONVERT");
-
-            // toolTip
-            toolTip.SetToolTip(textBox_length, Trans.T("FI_LENGTH_TOOL"));
-            toolTip.SetToolTip(textBox_density, Trans.T("FI_DENSITY_TOOL"));
-            toolTip.SetToolTip(textBox_diameter, Trans.T("FI_DIAMETER_TOOL"));
-            toolTip.SetToolTip(textBox_cost, Trans.T("FI_COST_TOOL"));
-            toolTip.SetToolTip(numericUpDown_tabPos, Trans.T("FI_TABPOS_TOOL"));
         }
 
     }
