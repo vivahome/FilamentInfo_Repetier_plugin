@@ -51,6 +51,12 @@
     <Compile Include="addEdit_form.Designer.cs">
       <DependentUpon>addEdit_form.cs</DependentUpon>
     </Compile>
+    <Compile Include="External_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="External_form.Designer.cs">
+      <DependentUpon>External_form.cs</DependentUpon>
+    </Compile>
     <Compile Include="FilamentControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -64,10 +70,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="SettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingsControl.Designer.cs">
+      <DependentUpon>SettingsControl.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="addEdit_form.resx">
       <DependentUpon>addEdit_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External_form.resx">
+      <DependentUpon>External_form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FilamentControl.resx">
       <DependentUpon>FilamentControl.cs</DependentUpon>
@@ -75,6 +91,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsControl.resx">
+      <DependentUpon>SettingsControl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

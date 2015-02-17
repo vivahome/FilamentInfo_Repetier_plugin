@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("ABS", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("PLA", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup13 = new System.Windows.Forms.ListViewGroup("PET", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup14 = new System.Windows.Forms.ListViewGroup("NYLON", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup15 = new System.Windows.Forms.ListViewGroup("OTHER", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ABS", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("PLA", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("PET", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("NYLON", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("OTHER", System.Windows.Forms.HorizontalAlignment.Left);
             this.button_defaultDensity = new System.Windows.Forms.Button();
             this.label_resultCost = new System.Windows.Forms.Label();
             this.label_totalCost = new System.Windows.Forms.Label();
@@ -60,7 +60,6 @@
             this.columnHeader_Density = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader_Note = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.numericUpDown_tabPos = new System.Windows.Forms.NumericUpDown();
             this.contextMenu_density = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.MenuItem_pla = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_abs = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,7 +72,6 @@
             this.comboBox_unity = new System.Windows.Forms.ComboBox();
             this.groupBox_filamentList = new System.Windows.Forms.GroupBox();
             this.button_backup = new System.Windows.Forms.Button();
-            this.label_tabPos = new System.Windows.Forms.Label();
             this.contextMenu_backup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,7 +79,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.textBox_diameter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox_length)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox_density)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_tabPos)).BeginInit();
             this.contextMenu_density.SuspendLayout();
             this.contextMenu_listView.SuspendLayout();
             this.groupBox_converter.SuspendLayout();
@@ -271,7 +268,7 @@
             this.button_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_edit.AutoSize = true;
             this.button_edit.Enabled = false;
-            this.button_edit.Location = new System.Drawing.Point(125, 326);
+            this.button_edit.Location = new System.Drawing.Point(125, 349);
             this.button_edit.Name = "button_edit";
             this.button_edit.Size = new System.Drawing.Size(60, 27);
             this.button_edit.TabIndex = 3;
@@ -285,7 +282,7 @@
             this.button_delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_delete.AutoSize = true;
             this.button_delete.Enabled = false;
-            this.button_delete.Location = new System.Drawing.Point(252, 326);
+            this.button_delete.Location = new System.Drawing.Point(252, 349);
             this.button_delete.Name = "button_delete";
             this.button_delete.Size = new System.Drawing.Size(60, 27);
             this.button_delete.TabIndex = 2;
@@ -298,7 +295,7 @@
             // 
             this.button_add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button_add.AutoSize = true;
-            this.button_add.Location = new System.Drawing.Point(12, 326);
+            this.button_add.Location = new System.Drawing.Point(12, 349);
             this.button_add.Name = "button_add";
             this.button_add.Size = new System.Drawing.Size(60, 27);
             this.button_add.TabIndex = 1;
@@ -324,28 +321,28 @@
             this.listView_filament.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.68932F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView_filament.FullRowSelect = true;
             this.listView_filament.GridLines = true;
-            listViewGroup11.Header = "ABS";
-            listViewGroup11.Name = "listViewGroup_ABS";
-            listViewGroup12.Header = "PLA";
-            listViewGroup12.Name = "listViewGroup_PLA";
-            listViewGroup13.Header = "PET";
-            listViewGroup13.Name = "listViewGroup_PET";
-            listViewGroup14.Header = "NYLON";
-            listViewGroup14.Name = "listViewGroup_NYLON";
-            listViewGroup15.Header = "OTHER";
-            listViewGroup15.Name = "listViewGroup_OTHER";
+            listViewGroup1.Header = "ABS";
+            listViewGroup1.Name = "listViewGroup_ABS";
+            listViewGroup2.Header = "PLA";
+            listViewGroup2.Name = "listViewGroup_PLA";
+            listViewGroup3.Header = "PET";
+            listViewGroup3.Name = "listViewGroup_PET";
+            listViewGroup4.Header = "NYLON";
+            listViewGroup4.Name = "listViewGroup_NYLON";
+            listViewGroup5.Header = "OTHER";
+            listViewGroup5.Name = "listViewGroup_OTHER";
             this.listView_filament.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup11,
-            listViewGroup12,
-            listViewGroup13,
-            listViewGroup14,
-            listViewGroup15});
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3,
+            listViewGroup4,
+            listViewGroup5});
             this.listView_filament.HideSelection = false;
             this.listView_filament.Location = new System.Drawing.Point(12, 30);
             this.listView_filament.MultiSelect = false;
             this.listView_filament.Name = "listView_filament";
             this.listView_filament.ShowItemToolTips = true;
-            this.listView_filament.Size = new System.Drawing.Size(482, 290);
+            this.listView_filament.Size = new System.Drawing.Size(482, 313);
             this.listView_filament.TabIndex = 0;
             this.listView_filament.UseCompatibleStateImageBehavior = false;
             this.listView_filament.View = System.Windows.Forms.View.Details;
@@ -385,33 +382,6 @@
             // 
             this.columnHeader_Note.Text = "Note";
             this.columnHeader_Note.Width = 133;
-            // 
-            // numericUpDown_tabPos
-            // 
-            this.numericUpDown_tabPos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.numericUpDown_tabPos.Location = new System.Drawing.Point(95, 571);
-            this.numericUpDown_tabPos.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numericUpDown_tabPos.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown_tabPos.Name = "numericUpDown_tabPos";
-            this.numericUpDown_tabPos.ReadOnly = true;
-            this.numericUpDown_tabPos.Size = new System.Drawing.Size(41, 20);
-            this.numericUpDown_tabPos.TabIndex = 21;
-            this.toolTip.SetToolTip(this.numericUpDown_tabPos, "Set the Filament Tab position, 1 is first left.\r\n*RESTART REPETIER HOST AFTER CHA" +
-        "NGE*");
-            this.numericUpDown_tabPos.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown_tabPos.ValueChanged += new System.EventHandler(this.numericUpDown_tabPos_ValueChanged);
             // 
             // contextMenu_density
             // 
@@ -526,7 +496,7 @@
             this.groupBox_filamentList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.087379F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox_filamentList.Location = new System.Drawing.Point(3, 198);
             this.groupBox_filamentList.Name = "groupBox_filamentList";
-            this.groupBox_filamentList.Size = new System.Drawing.Size(507, 368);
+            this.groupBox_filamentList.Size = new System.Drawing.Size(507, 391);
             this.groupBox_filamentList.TabIndex = 2;
             this.groupBox_filamentList.TabStop = false;
             this.groupBox_filamentList.Text = "Filaments rolls list";
@@ -534,23 +504,13 @@
             // button_backup
             // 
             this.button_backup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_backup.Location = new System.Drawing.Point(419, 330);
+            this.button_backup.Location = new System.Drawing.Point(419, 353);
             this.button_backup.Name = "button_backup";
             this.button_backup.Size = new System.Drawing.Size(75, 23);
             this.button_backup.TabIndex = 6;
             this.button_backup.Text = "Backup";
             this.button_backup.UseVisualStyleBackColor = true;
             this.button_backup.Click += new System.EventHandler(this.openMenu_backup);
-            // 
-            // label_tabPos
-            // 
-            this.label_tabPos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label_tabPos.Location = new System.Drawing.Point(4, 571);
-            this.label_tabPos.Name = "label_tabPos";
-            this.label_tabPos.Size = new System.Drawing.Size(83, 18);
-            this.label_tabPos.TabIndex = 22;
-            this.label_tabPos.Text = "Tab position:";
-            this.label_tabPos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // contextMenu_backup
             // 
@@ -580,8 +540,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label_tabPos);
-            this.Controls.Add(this.numericUpDown_tabPos);
             this.Controls.Add(this.groupBox_converter);
             this.Controls.Add(this.groupBox_filamentList);
             this.Name = "FilamentControl";
@@ -591,7 +549,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.textBox_diameter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox_length)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBox_density)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_tabPos)).EndInit();
             this.contextMenu_density.ResumeLayout(false);
             this.contextMenu_listView.ResumeLayout(false);
             this.groupBox_converter.ResumeLayout(false);
@@ -641,8 +598,6 @@
         private System.Windows.Forms.Button button_edit;
         private System.Windows.Forms.GroupBox groupBox_converter;
         private System.Windows.Forms.GroupBox groupBox_filamentList;
-        private System.Windows.Forms.NumericUpDown numericUpDown_tabPos;
-        private System.Windows.Forms.Label label_tabPos;
         private System.Windows.Forms.ComboBox comboBox_unity;
         private System.Windows.Forms.Button button_backup;
         private System.Windows.Forms.ContextMenuStrip contextMenu_backup;

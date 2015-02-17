@@ -12,6 +12,7 @@
 <t id="FI_L_TOTALCOST" ver="1">cost:</t>
 <t id="FI_L_WEIGHT" ver="1">weight:</t>
 <t id="FI_L_TABPOS" ver="1">Tab position:</t>
+<t id="FI_L_PLUGINPOS" ver="1">Plugin position:</t>
 
 
 <t id="FI_COL_0" ver="1">Name</t>
@@ -49,7 +50,8 @@ PC:  1.200–1.220 g/cm3</t>
 
 <t id="FI_TABPOS_TOOL" ver="1">Set the Filaments Tab position, 1 is first left.
 *RESTART REPETIER HOST AFTER CHANGE*</t>
-
+<t id="FI_PLUGINPOS_TOOL" ver="1">Set the Plugin position.
+*RESTART REPETIER HOST AFTER CHANGE*</t>
 
 <t id="FI__TOOL" ver="1"></t>
 <t id="FI__TOOL" ver="1"></t>

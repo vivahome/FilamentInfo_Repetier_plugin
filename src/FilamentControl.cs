@@ -18,7 +18,10 @@ namespace FilamentInfo
         private int tabPos = 8000;
 
         private string tabName = Trans.T("FI_TABNAME");
+
+        private PreferredComponentPositions _position = PreferredComponentPositions.SIDEBAR;
         
+
 
         // COSTRUCTOR
         public FilamentControl()
@@ -36,7 +39,7 @@ namespace FilamentInfo
             IRegMemoryFolder Ireg = host.GetRegistryFolder("FilamentInfo_plugin");
 
             //tabPos = Ireg.GetInt("tabPos", 8) * 1000;
-            numericUpDown_tabPos.Value = Convert.ToDecimal( tabPos/1000 + 1);
+           // numericUpDown_tabPos.Value = Convert.ToDecimal( tabPos/1000 + 1);
 
 
             // items ar separed by "|" params by ";"
@@ -61,9 +64,18 @@ namespace FilamentInfo
         {
             host = _host;
 
-            IRegMemoryFolder Ireg = host.GetRegistryFolder("FilamentInfo_plugin");
-            tabPos = Ireg.GetInt("tabPos", 8000) ;     
+            tabPos = Settings.TabPos;     
         }
+        public void Connect(IHost _host, int _pos)
+        {
+            host = _host;
+
+            tabPos = Settings.TabPos; 
+
+            if (_pos == 1)
+                _position = PreferredComponentPositions.MAIN_AREA;
+        }
+
         //Gets called when the component comes into view. For tabs this means when the tab gets selected.
         public void ComponentActivated() {}
         //Associated ThreeDView object to show in the 3d view. Return null for no assiciation. 
@@ -75,7 +87,7 @@ namespace FilamentInfo
         // Used for positioning the tab.
         public int ComponentOrder { get { return tabPos; } }
         // Where to add it.
-        public PreferredComponentPositions PreferredPosition { get { return PreferredComponentPositions.SIDEBAR; } }
+        public PreferredComponentPositions PreferredPosition { get { return _position; } }
         // Return the UserControl.
         public Control ComponentControl { get { return this; } }
 
@@ -120,8 +132,6 @@ namespace FilamentInfo
             decimal cost =  textBox_cost.Value * (weight / 1000);
             label_resultCost.Text = Decimal.Round( cost, 2 ).ToString() + " $";
         }
-
-
 
 
         private void openMenu_backup(object sender, EventArgs e)
@@ -302,14 +312,6 @@ namespace FilamentInfo
             } 
         }
 
-        private void numericUpDown_tabPos_ValueChanged(object sender, EventArgs e)
-        {
-            tabPos = ( Convert.ToInt32( numericUpDown_tabPos.Value) - 1 ) * 1000;
-
-            IRegMemoryFolder Ireg = host.GetRegistryFolder("FilamentInfo_plugin");
-
-            Ireg.SetInt("tabPos", tabPos);
-        }
 
 
         // Help function...
@@ -403,7 +405,7 @@ namespace FilamentInfo
             label_diameter.Text = Trans.T("FI_L_DIAMETER");
             label_length.Text = Trans.T("FI_L_LENGTH");
             label_weight.Text = Trans.T("FI_L_WEIGHT");
-            label_tabPos.Text = Trans.T("FI_L_TABPOS");
+            //label_tabPos.Text = Trans.T("FI_L_TABPOS");
 
             // listview colums
             listView_filament.Columns[0].Text = Trans.T("FI_COL_0");
@@ -436,7 +438,7 @@ namespace FilamentInfo
             toolTip.SetToolTip(textBox_density, Trans.T("FI_DENSITY_TOOL"));
             toolTip.SetToolTip(textBox_diameter, Trans.T("FI_DIAMETER_TOOL"));
             toolTip.SetToolTip(textBox_cost, Trans.T("FI_COST_TOOL"));
-            toolTip.SetToolTip(numericUpDown_tabPos, Trans.T("FI_TABPOS_TOOL"));
+           // toolTip.SetToolTip(numericUpDown_tabPos, Trans.T("FI_TABPOS_TOOL"));
         }
 
         // BACKUP list
