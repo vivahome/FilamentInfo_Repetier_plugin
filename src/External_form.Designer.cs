@@ -33,7 +33,7 @@
             // External_form
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(514, 595);
+            this.ClientSize = new System.Drawing.Size(517, 390);
             this.Name = "External_form";
             this.ShowIcon = false;
             this.Text = "Filament Info";

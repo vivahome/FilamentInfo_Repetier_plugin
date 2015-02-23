@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using RepetierHostExtender.interfaces;
 using RepetierHostExtender.utils;
@@ -35,6 +28,7 @@ namespace FilamentInfo
 
             numericUpDown_tabPos.Value = Convert.ToDecimal(Settings.TabPos / 1000 + 1);
 
+            comboBox_showCalc.SelectedIndex = Settings.showCalculator;
 
             _controlLoaded = true;
         }
@@ -75,6 +69,17 @@ namespace FilamentInfo
         // If preference form is closed befor the plugin tab is selected Connect() is not called.
         public void ComponentDeactivated()
         {
+            saveSettings();
+        }
+        //Returns icon for the left list. Size should be 32x32 pixel. Can be null. 
+        public ImageList ComponentIconList { get { return null; } }
+
+        public bool CanClose { get { return true; } }
+
+        #endregion
+
+        private void saveSettings()
+        {
             if (!_controlLoaded)
                 return;
 
@@ -86,16 +91,11 @@ namespace FilamentInfo
             int tabPos = (Convert.ToInt32(numericUpDown_tabPos.Value) - 1) * 1000;
             Ireg.SetInt("TabPos", tabPos);
 
+
+            Ireg.SetInt("showCalculator", comboBox_showCalc.SelectedIndex);
         }
-        //Returns icon for the left list. Size should be 32x32 pixel. Can be null. 
-        public ImageList ComponentIconList { get { return null; } }
 
-        public bool CanClose { get { return true; } }
-
-        #endregion
-
-
-
+        // Open the plugin home page
         private void linkLabel_version_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             host.OpenLink(Settings.homepage);
@@ -104,8 +104,19 @@ namespace FilamentInfo
         private void load_Translations()
         {
 
+
             label_tabPos.Text = Trans.T("FI_L_TABPOS");
+            label_tabHelp .Text =  Trans.T("FI_L_TABHELP");
+
+
             label_position.Text = Trans.T("FI_L_PLUGINPOS");
+            label_positionHelp.Text = Trans.T("FI_L_POSITIONHELP");
+
+            label_showCalc.Text = Trans.T("FI_L_SHOWCALC");
+            label_showCalcHelp.Text = Trans.T("FI_L_SHOWCALCHELP");
+            //showCalcHelp
+
+            label_restart.Text = Trans.T("FI_L_RESTART");
 
             toolTip.SetToolTip(numericUpDown_tabPos, Trans.T("FI_TABPOS_TOOL"));
             toolTip.SetToolTip(comboBox_pos, Trans.T("FI_PLUGINPOS_TOOL"));

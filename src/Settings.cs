@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RepetierHostExtender.interfaces;
+﻿using RepetierHostExtender.interfaces;
 
 namespace FilamentInfo
 {
@@ -15,12 +10,17 @@ namespace FilamentInfo
         // Plugin home page
         public const string homepage = "https://github.com/BrOncOVu/FilamentInfo_Repetier_plugin";
 
-        // 0: sidebar 1: main 2: external
+        /// <summary>
+        /// 0: sidebar 1: main 2: external
+        /// </summary>
         public static int filamentListPos = 0;
 
         public static int TabPos = 8000;
 
-
+        /// <summary>
+        /// 0: none; 1: show; 2: Show external
+        /// </summary>
+        public static int showCalculator = 1;
 
 
         /// <summary>
@@ -35,6 +35,8 @@ namespace FilamentInfo
             filamentListPos = Ireg.GetInt("filamentListPos", 0);
 
             TabPos = Ireg.GetInt("TabPos", 8000);
+
+            showCalculator = Ireg.GetInt("showCalculator", 1);
 
         }
 

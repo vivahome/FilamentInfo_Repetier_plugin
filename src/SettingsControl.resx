@@ -123,4 +123,18 @@
   <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>189, 17</value>
   </metadata>
+  <data name="label_positionHelp.Text" xml:space="preserve">
+    <value>Select the location where the plugin will be shown
+RIGHT: insert the plugin into a tab on the right side.
+MAIN: insert the plugin into a tab on the main area.
+EXTERNAL: Open in a external window, add a link in the Tools menu.
+</value>
+  </data>
+  <data name="label_showCalcHelp.Text" xml:space="preserve">
+    <value>Select if show the calculator and the position
+NONE: not show the calculator.
+SHOW: show the calculator with the filament list.
+EXTERNAL Form: Open in a external window, add a link in the Tools menu.
+</value>
+  </data>
 </root>

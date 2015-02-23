@@ -11,3 +11,5 @@ C:\Program Files\Repetier-Host\plugins\FilamentInfo\FilamentInfo.dll
 C:\Program Files\Repetier-Host\plugins\FilamentInfo\FilamentInfo.pdb
 C:\Users\BrOncO\Documents\Visual Studio 2013\Projects\FilamentInfo\FilamentInfo_Repetier_plugin\src\obj\Release\FilamentInfo.SettingsControl.resources
 C:\Users\BrOncO\Documents\Visual Studio 2013\Projects\FilamentInfo\FilamentInfo_Repetier_plugin\src\obj\Release\FilamentInfo.External_form.resources
+C:\Users\BrOncO\Documents\Visual Studio 2013\Projects\FilamentInfo\FilamentInfo_Repetier_plugin\src\obj\Release\FilamentInfo.ConverterControl.resources
+C:\Users\BrOncO\Documents\Visual Studio 2013\Projects\FilamentInfo\FilamentInfo_Repetier_plugin\src\obj\Release\FilamentInfo.wrapper.resources

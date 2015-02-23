@@ -2,7 +2,11 @@
 <translation revision="10" language="Italiano" languageInEnglish="Italian" author="BrOncO">
 <t id="FI_TABNAME" ver="1">Filamenti</t>
 <t id="FI_FORMTITLE" ver="1">Informazioni filamenti</t>
-<t id="FI_LINKMENU" ver="1">Plugin Filamenti</t>
+  <t id="FI_FORMTITLECALC" ver="1">Calcolatore</t>
+<t id="FI_LINKMENU" ver="1">Lista Filamenti</t>
+  <t id="FI_LINKMENUCALC" ver="1">Calcolatore peso/costo</t>
+  
+  
 
 <t id="FI_GB_CONVERTER" ver="1">Covertitore</t>
 <t id="FI_GB_FILAMENTS" ver="1">Lista dei filamenti</t>
@@ -13,8 +17,24 @@
 <t id="FI_L_LENGTH" ver="1">Lunghezza</t>
 <t id="FI_L_TOTALCOST" ver="1">Costo:</t>
 <t id="FI_L_WEIGHT" ver="1">Peso:</t>
-<t id="FI_L_TABPOS" ver="1">Posizione Tab:</t>
 <t id="FI_L_PLUGINPOS" ver="1">Posizione Plugin:</t>
+  <t id="FI_L_POSITIONHELP" ver="1">
+    Seleziona la posizione dove il plugin verrà caricato
+    RIGHT: In una scheda nella parte destra.
+    MAIN: In una scheda nella parte principale (insieme alla vista 3D e grafico temperatura).
+    EXTERNAL: In una finestra separata, verrà aggiunto un link nel menu Strumenti di repetier host.
+  </t>
+<t id="FI_L_TABPOS" ver="1">Posizione Tab:</t>
+  <t id="FI_L_TABHELP" ver="1">Seleziona l'ordine per la scheda del plugin, 1 è la prima posizione sulla sinistra</t>
+  <t id="FI_L_SHOWCALC" ver="1">Mostra calcolatore:</t>
+  <t id="FI_L_SHOWCALCHELP" ver="1">
+    Seleziona se mostrare il calcolatore per il peso e prezzo.
+    NONE: non mostrare.
+    SHOW: mostra il calcolatore insieme alla lista filamenti.
+    EXTERNAL Form: Aprilo in un form separato, inserisce un link nel menu strumenti.
+  </t>
+  
+  <t id="FI_L_RESTART" ver="1">*Per rendere effettive le modifiche è necessario riavviare repetier host.</t>
 
 
 <t id="FI_COL_0" ver="1">Nome</t>

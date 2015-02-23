@@ -51,17 +51,17 @@
     <Compile Include="addEdit_form.Designer.cs">
       <DependentUpon>addEdit_form.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConverterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ConverterControl.Designer.cs">
+      <DependentUpon>ConverterControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="External_form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="External_form.Designer.cs">
       <DependentUpon>External_form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FilamentControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="FilamentControl.Designer.cs">
-      <DependentUpon>FilamentControl.cs</DependentUpon>
     </Compile>
     <Compile Include="FilamentInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,16 +77,28 @@
     <Compile Include="SettingsControl.Designer.cs">
       <DependentUpon>SettingsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="FilamentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FilamentControl.Designer.cs">
+      <DependentUpon>FilamentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wrapper.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="wrapper.Designer.cs">
+      <DependentUpon>wrapper.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="addEdit_form.resx">
       <DependentUpon>addEdit_form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConverterControl.resx">
+      <DependentUpon>ConverterControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="External_form.resx">
       <DependentUpon>External_form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FilamentControl.resx">
-      <DependentUpon>FilamentControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -95,11 +107,20 @@
     <EmbeddedResource Include="SettingsControl.resx">
       <DependentUpon>SettingsControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FilamentControl.resx">
+      <DependentUpon>FilamentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wrapper.resx">
+      <DependentUpon>wrapper.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="translations\en.xml" />
-    <Content Include="translations\it.xml" />
+    <Content Include="translations\it.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -43,6 +43,16 @@ namespace FilamentInfo
                 + "\r\n Homepage: " + Settings.homepage);
 
 
+            // if external position for the calculator is selected add a link in the menu and the event click
+            if (Settings.showCalculator == 2)
+            {
+                ToolStripMenuItem menuItem = new ToolStripMenuItem(Trans.T("FI_LINKMENUCALC"));
+                menuItem.Click += menuItem_ShowCalcClick;
+
+                host.GetMenuFolder(MenuFolder.TOOLS_MENU).DropDownItems.Add(menuItem);
+            }
+
+
             // if external position is selected add a link in the menu and the event click
             if (Settings.filamentListPos == 2)
             {
@@ -54,9 +64,10 @@ namespace FilamentInfo
             }
 
 
-            // Add the CoolControl to the right tab or in the main area
-            FilamentControl cool = new FilamentControl();
-            cool.Connect(host, Settings.filamentListPos);
+
+            // Add the CoolControl to the right tab or into main area
+            wrapper cool = new wrapper();
+            cool.Connect(host);
             host.RegisterHostComponent(cool);
 
         }
@@ -65,13 +76,20 @@ namespace FilamentInfo
         {
         }
 
+        void menuItem_ShowCalcClick(object sender, System.EventArgs e)
+        {
+            // Create a new instance of the Form class
+            External_form externalForm = new External_form();
 
+            // Show the external form
+            externalForm.Show();
+        }
         void menuItem_Click(object sender, System.EventArgs e)
         {
             // Create a new instance of the Form2 class
             External_form externalForm = new External_form(host);
 
-            // Show the settings form
+            // Show the external form
             externalForm.Show();
         }
 

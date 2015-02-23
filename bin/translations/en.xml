@@ -1,18 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <translation revision="10" language="English" languageInEnglish="English" author="BrOncO">
+  <t id="FI_TABNAME" ver="1">Filaments</t>
+  <t id="FI_FORMTITLE" ver="1">Filament Info</t>
+  <t id="FI_FORMTITLECALC" ver="1">Calculator</t>
+  <t id="FI_LINKMENU" ver="1">Filament utility</t>
+  <t id="FI_LINKMENUCALC" ver="1">Weight/coust calculator</t>
 
-<t id="FI_TABNAME" ver="1">Filaments</t>
-<t id="FI_GB_CONVERTER" ver="1">Coverter</t>
-<t id="FI_GB_FILAMENTS" ver="1">Filaments rolls list</t>
 
-<t id="FI_L_COST" ver="1">Cost for 1 kg</t>
-<t id="FI_L_DENSITY" ver="1">Density in g/cm3:</t>
-<t id="FI_L_DIAMETER" ver="1">Diameter in mm</t>
-<t id="FI_L_LENGTH" ver="1">Filament length</t>
-<t id="FI_L_TOTALCOST" ver="1">cost:</t>
-<t id="FI_L_WEIGHT" ver="1">weight:</t>
-<t id="FI_L_TABPOS" ver="1">Tab position:</t>
-<t id="FI_L_PLUGINPOS" ver="1">Plugin position:</t>
+
+  <t id="FI_GB_CONVERTER" ver="1">Coverter</t>
+  <t id="FI_GB_FILAMENTS" ver="1">Filaments rolls list</t>
+
+  <t id="FI_L_COST" ver="1">Cost for 1 kg</t>
+  <t id="FI_L_DENSITY" ver="1">Density in g/cm3:</t>
+  <t id="FI_L_DIAMETER" ver="1">Diameter in mm</t>
+  <t id="FI_L_LENGTH" ver="1">Filament length</t>
+  <t id="FI_L_TOTALCOST" ver="1">cost:</t>
+  <t id="FI_L_WEIGHT" ver="1">weight:</t>
+  <t id="FI_L_PLUGINPOS" ver="1">Plugin position:</t>
+  <t id="FI_L_POSITIONHELP" ver="1">
+  Select the location where the plugin will be shown
+  RIGHT: insert the plugin into a tab on the right side.
+  MAIN: insert the plugin into a tab on the main area.
+  EXTERNAL: Open in a external window, add a link in the Tools menu.
+  </t>
+  <t id="FI_L_TABPOS" ver="1">Tab position:</t>
+  <t id="FI_L_TABHELP" ver="1">Select the Tab position, 1 is the first tab on the left side</t>
+  <t id="FI_L_SHOWCALC" ver="1">Show calculator:</t>
+  <t id="FI_L_SHOWCALCHELP" ver="1">
+    Select if show the calculator and the position
+    NONE: not show the calculator.
+    SHOW: show the calculator with the filament list.
+    EXTERNAL Form: Open in a external window, add a link in the Tools menu.
+  </t>
+  <t id="FI_L_RESTART" ver="1">*you must restart repetier host to see the changes</t>
+  
 
 
 <t id="FI_COL_0" ver="1">Name</t>
